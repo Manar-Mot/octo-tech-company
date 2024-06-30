@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import SectionContainer from "../../sharedComponent/SectionContainer";
 import TitleSection from "../../sharedComponent/TitleSection";
 import { acceptLogo, middleLogo, sarLogo, zaitunLogo } from "@/public/assets";
-import { HiChevronLeft,HiChevronRight } from "react-icons/hi2";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import Image from "next/image";
 import Link from "next/link";
 const sliderSettings = {
@@ -17,8 +17,7 @@ const sliderSettings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   initialSlide: 0,
-  arrows:false,
-
+  arrows: false,
 
   responsive: [
     {
@@ -26,7 +25,6 @@ const sliderSettings = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
- 
       },
     },
     {
@@ -71,42 +69,41 @@ const PartnershipsSection: React.FC = () => {
     >
       <TitleSection title={t("title")} />
       <div className="flex items-center  justify-center ">
-      <button
-        onClick={prevSlide}
-        className=" text-[24px] text-slate-400  z-10"
-      >
-        <HiChevronRight />
-      </button>
-      <Slider
-        ref={sliderRef}
-        {...sliderSettings}
-        className="my-10  w-[90%] mx-auto "
-      >
-        {partnershipsList.map((partner) => (
-          <div key={partner.id} className=" ">
-            <div className="flex flex-col items-center justify-center gap-3">
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                className=" w-32 md:w-36 lg:w-48 h-auto"
-              />
-              <h4 className="text-title font-semibold text-[16px] lg:text-[18px] text-center">
-                {partner.name}
-              </h4>
+        <button
+          onClick={prevSlide}
+          className=" text-[24px] text-slate-400  z-10 ltr:rotate-180"
+        >
+          <HiChevronRight />
+        </button>
+        <Slider
+          ref={sliderRef}
+          {...sliderSettings}
+          className="my-10  w-[90%] mx-auto "
+        >
+          {partnershipsList.map((partner) => (
+            <div key={partner.id} className=" ">
+              <div className="flex flex-col items-center justify-center gap-3">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  className=" w-32 md:w-36 lg:w-48 h-auto"
+                />
+                <h4 className="text-title font-semibold text-[16px] lg:text-[18px] text-center">
+                  {partner.name}
+                </h4>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-      <button
-        onClick={nextSlide}
-        className=" text-[24px]   text-slate-400  z-10"
-      >
-      <HiChevronLeft />
-      </button>
-
+          ))}
+        </Slider>
+        <button
+          onClick={nextSlide}
+          className=" text-[24px]   text-slate-400  z-10 ltr:rotate-180"
+        >
+          <HiChevronLeft />
+        </button>
       </div>
       <Link href="/" className="text-secondary underline">
-  {t('link')}
+        {t("link")}
       </Link>
     </SectionContainer>
   );
