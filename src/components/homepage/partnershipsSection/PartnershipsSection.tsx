@@ -9,7 +9,8 @@ import TitleSection from "../../sharedComponent/TitleSection";
 import { acceptLogo, middleLogo, sarLogo, zaitunLogo } from "@/public/assets";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/src/navigation";
+
 const sliderSettings = {
   dots: false,
   infinite: false,
@@ -102,7 +103,7 @@ const PartnershipsSection: React.FC = () => {
           <HiChevronLeft />
         </button>
       </div>
-      <Link href="/" className="text-secondary underline">
+      <Link href="/partnerships" className="text-secondary underline">
         {t("link")}
       </Link>
     </SectionContainer>
