@@ -38,7 +38,7 @@ const LocalSwitcher: React.FC<LocalSwitcherProps> = ({ locale }) => {
         <span className="sr-only">Change language</span>
         <div className="flex items-center w-full ">
           {selectedOption === "en" && <span>English</span>}
-          {selectedOption === "tr" && <span>Turkey</span>}
+          {selectedOption === "tr" && <span>Turkish</span>}
           {selectedOption === "ar" && <span>العربية</span>}
         </div>
         <HiChevronDown />
@@ -56,7 +56,7 @@ const LocalSwitcher: React.FC<LocalSwitcherProps> = ({ locale }) => {
             className="px-2 py-1 cursor-pointer hover:bg-gray-200"
             onClick={() => handleOptionClick("tr")}
           >
-            Turkey
+            Turkish
           </div>
           <div
             className="px-2 py-1 cursor-pointer hover:bg-gray-200"
