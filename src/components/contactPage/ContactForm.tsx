@@ -94,7 +94,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess, onError }) => {
         className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-[16px] font-medium text-white ${
           loading
             ? "bg-gray-400"
-            : "bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            : "bg-accent hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         }`}
       >
         {loading ? t("sending") : t("send")}

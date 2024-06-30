@@ -63,7 +63,7 @@ const SignInForm = ({
         </div>
       </div>
       <button
-        className="w-full mt-6 bg-blue-500 text-white py-2 px-4 rounded"
+        className="w-full mt-6 bg-accent text-white py-2 px-4 rounded"
         type="submit"
         disabled={isSubmitting}
       >
@@ -75,12 +75,12 @@ const SignInForm = ({
         <div className="border-b border-gray-400 w-full"></div>
       </div>
       <button
-        className="w-full bg-transparent text-title py-2 px-4 rounded flex items-center gap-2"
+        className="w-full bg-transparent transition-all ease-linear duration-75 hover:bg-slate-100 text-title py-2 px-4 rounded flex justify-center items-center gap-2 border border-slate-300"
         type="button"
         onClick={() => signIn("google", { callbackUrl })}
       >
         Sign in with Google
-        <Image src={GoogleIcon} alt="google-icon" className="w-10 h-auto object-cover"/>
+        <Image src={GoogleIcon} alt="google-icon" className="w-4 h-auto object-cover "/>
       </button>
       <p className="text-center text-sm text-gray-600 mt-2">
         Don&apos;t have an account?&nbsp;

@@ -38,7 +38,7 @@ const LocalSwitcher: React.FC<LocalSwitcherProps> = ({ locale }) => {
         <span className="sr-only">Change language</span>
         <div className="flex items-center w-full ">
           {selectedOption === "en" && <span>English</span>}
-          {selectedOption === "tr" && <span>Turkish</span>}
+          {selectedOption === "tr" && <span>Turkey</span>}
           {selectedOption === "ar" && <span>العربية</span>}
         </div>
         <HiChevronDown />

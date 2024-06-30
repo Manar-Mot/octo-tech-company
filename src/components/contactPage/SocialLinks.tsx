@@ -7,7 +7,7 @@ import {
   FaTwitter,
   FaWhatsapp,
   FaYoutube,
-} from "react-icons/fa";
+} from "react-icons/fa6";
 
 const SocialLinks: React.FC = () => (
   <div className="flex text-[22px] items-center gap-2 text-secondary mt-10">
