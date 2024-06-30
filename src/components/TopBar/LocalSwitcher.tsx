@@ -56,7 +56,7 @@ const LocalSwitcher: React.FC<LocalSwitcherProps> = ({ locale }) => {
             className="px-2 py-1 cursor-pointer hover:bg-gray-200"
             onClick={() => handleOptionClick("tr")}
           >
-            Turkish
+            Turkey
           </div>
           <div
             className="px-2 py-1 cursor-pointer hover:bg-gray-200"
