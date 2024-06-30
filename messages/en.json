@@ -1,0 +1,190 @@
+{
+  "TopBar": {
+    "signIn-btn": "Sign In",
+    "signUp-btn": "Sign Up",
+    "language-switch-title": "Language"
+  },
+  "navBar": {
+    "discover-services-btn": "Discover Our Services",
+    "home-link": "Home",
+    "certificates-link": "Certificates",
+    "partnerships-link": "Partnerships",
+    "blog-link": "Blog",
+    "about-us-link": "About Us",
+    "contact-link": "Contact Us"
+  },
+  "hero": {
+    "heroTitle": "We Turn Your Ideas into Technological Reality",
+    "heroDescription": "We provide customized software solutions to support the growth of your business",
+    "contact-btn": "Contact Us",
+    "consultation-btn": "Get a Free Consultation"
+  },
+  "featuresSection": {
+    "title": "We Embrace Innovation and Development as Part of Our Identity",
+    "modernTech": {
+      "title": "Adoption of Modern Technology",
+      "description": "Emphasis on using the latest tools and techniques in software development and highlighting innovation in products and services by providing regular updates and new features based on market research and customer needs."
+    },
+    "development": {
+      "title": "Skill Development and Training",
+      "description": "Organizing training programs to develop skills and keep up with technological changes, and helping trainees obtain recognized professional certifications in programming and information technology."
+    },
+    "clientsAndPartnerships": {
+      "title": "Clients and Partnerships",
+      "description": "Building strong relationships with clients and understanding their changing needs to ensure the solutions provided meet their expectations and help achieve their goals, and establishing partnerships with leading technology companies and academic institutions to enhance innovation and exchange knowledge and experiences."
+    }
+  },
+  "servicesSection": {
+    "title": "Our Services",
+    "description": "We offer a variety of services to meet your business needs",
+    "service1": {
+      "title": "Web Design & Development",
+      "description": "We design and develop custom websites tailored to meet your business needs, using the latest technologies to ensure outstanding performance and a great user experience."
+    },
+    "service2": {
+      "title": "Mobile App Development",
+      "description": "We develop mobile applications compatible with iOS and Android platforms, ensuring high performance and a seamless user experience."
+    },
+    "service3": {
+      "title": "Graphic Design",
+      "description": "We provide professional graphic design services, from logos to complete visual identities, to help you build a distinctive brand image."
+    },
+    "service4": {
+      "title": "Video Editing",
+      "description": "We offer professional video editing services to transform your footage into engaging videos that effectively promote your content."
+    },
+    "service5": {
+      "title": "Translation",
+      "description": "Professional translation services covering a wide range of languages to ensure effective communication with your global audience."
+    },
+    "service6": {
+      "title": "Marketing",
+      "description": "We provide integrated marketing strategies including digital marketing and social media management, to increase your brand reach and achieve your goals."
+    },
+    "service7": {
+      "title": "Controller Programming",
+      "description": "Precision controller programming services for developing custom solutions for control and automation in a variety of industrial and commercial applications."
+    },
+    "service8": {
+      "title": "Interior Design",
+      "description": "We offer interior design services for residential and commercial spaces, creating functional and aesthetic environments that reflect your identity."
+    }
+  },
+
+  "testimonials": {
+    "title": "Customer Testimonials",
+    "userTestimonial": [
+      {
+        "name": "Mr. Ali Al-Mohammed",
+        "testimonial": "My experience with the company was excellent. I got a unique website that meets all my needs. The team was professional and helpful."
+      },
+      {
+        "name": "Mr. Ahmed Al-Ali",
+        "testimonial": "My experience with the company was excellent. I got a unique website that meets all my needs. The team was professional and helpful."
+      }
+    ]
+  },
+
+  "partnershipsSection": {
+    "title": "Partnerships",
+    "partnerships": [
+      "Al-Zaytoonah International University",
+      "Middle East Company",
+      "Accept Education Company",
+      "Syrian Students Union"
+    ],
+    "link": "More Details"
+  },
+  "recentArticles": {
+    "title": "Latest Articles",
+    "btnTitle": "Read More",
+    "Articles": [
+      {
+        "title": "Introduction to Octo Tech Company for Engineering Projects and Pioneering Services",
+        "description": "We provide comprehensive development of mobile applications, websites, and computer software, as well as editing."
+      },
+      {
+        "title": "Registration for International Computer Driving License (ICDL) Training",
+        "description": "The Training and Development Office announces the launch of the International Computer Driving License (ICDL) training."
+      },
+      {
+        "title": "Announcement of English Conversation Training A1 Oxford British Curriculum - Learn Online",
+        "description": "Company announces the launch of the English Conversation Training A1 Oxford British Curriculum package."
+      }
+    ],
+    "link": "More Articles"
+  },
+
+  "footerSection": {
+    "description": "A leading company in application development and attractive website design, also offering interior design services, translation, and content writing. The company is dedicated to innovation and development to meet the needs of its customers and enable them to adapt to future advancements.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "links": {
+        "homePage": "Home Page",
+        "contactUs": "Contact Us",
+        "testimonials": "Testimonials",
+        "services": "Services",
+        "aboutUs": "About Us"
+      }
+    },
+    "followUs": "Follow Us"
+  },
+  "bottomBar": {
+    "title": "All rights reserved - Octo Tech Company"
+  },
+
+  "SignIn": {
+    "title": "Sign In",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "submitButton": "Sign In"
+  },
+  "signUpPage": {
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm your password",
+    "placeholderUsername": "your username",
+    "placeholderEmail": "mail@example.com",
+    "placeholderPassword": "your password",
+    "placeholderConfirmPassword": "confirm your password",
+    "signUp": "Sign Up",
+    "submitting": "Submitting...",
+    "or": "or",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign In",
+    "signUpSuccess": "Sign up successfully."
+  },
+  "verification": {
+    "title": "Request Verification",
+    "loading": "Loading...",
+    "message": "You can request a new verification token in {minutes} minutes."
+  },
+  "verifying": {
+    "title": "Verifying..."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully",
+    "error": "Something went wrong",
+    "goToPosition": "Go to Position",
+    "popupMessage": "Sharaa Al-Qusoor, Idlib, Syria",
+    "question": "Do you have any questions?",
+    "description": "We are here to assist you with all your technical inquiries and provide the necessary support. Do not hesitate to reach out to us for any questions or issues you may encounter. We are here to support and help you achieve your technical goals in the best possible way.",
+    "map": "Our location here.",
+    "contactInfoTitle": "  Let's work together to achieve your goals "
+  },
+  "verifyEmailSubject": "Email Verification",
+  "welcomeMessage": "Welcome to our site",
+  "NotFoundPage": {
+    "title": "Not Found",
+    "description": "The page is not found"
+  }
+}

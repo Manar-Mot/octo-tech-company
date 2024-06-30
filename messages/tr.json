@@ -1,0 +1,189 @@
+{
+  "TopBar": {
+    "signIn-btn": "Giriş Yap",
+    "signUp-btn": "Kaydol",
+    "language-switch-title": "Dil"
+  },
+  "navBar": {
+    "discover-services-btn": "Hizmetlerimizi Keşfedin",
+    "home-link": "Ana Sayfa",
+    "certificates-link": "Sertifikalar",
+    "partnerships-link": "Ortaklıklar",
+    "blog-link": "Blog",
+    "about-us-link": "Hakkımızda",
+    "contact-link": "İletişim"
+  },
+  "hero": {
+    "heroTitle": "Fikirlerinizi Teknolojik Gerçekliğe Dönüştürüyoruz",
+    "heroDescription": "İşletmenizin büyümesini desteklemek için özel yazılım çözümleri sunuyoruz",
+    "contact-btn": "Bizimle İletişime Geçin",
+    "consultation-btn": "Ücretsiz Danışmanlık Alın"
+  },
+  "featuresSection": {
+    "title": "Yeniliği ve Gelişimi Kimliğimizin Bir Parçası Olarak Benimsiyoruz",
+    "modernTech": {
+      "title": "Modern Teknolojinin Benimsenmesi",
+      "description": "Yazılım geliştirmede en son araç ve tekniklerin kullanılmasına vurgu yaparak, pazar araştırmaları ve müşteri ihtiyaçlarına dayalı olarak düzenli güncellemeler ve yeni özellikler sunarak ürün ve hizmetlerde yeniliği vurgulamak."
+    },
+    "development": {
+      "title": "Beceri Gelişimi ve Eğitim",
+      "description": "Becerileri geliştirmek ve teknolojik değişikliklere ayak uydurmak için eğitim programları düzenlemek ve katılımcıların programlama ve bilgi teknolojileri alanında tanınmış profesyonel sertifikalar almalarına yardımcı olmak."
+    },
+    "clientsAndPartnerships": {
+      "title": "Müşteriler ve Ortaklıklar",
+      "description": "Müşterilerle güçlü ilişkiler kurmak ve değişen ihtiyaçlarını anlamak, sağlanan çözümlerin beklentilerini karşılamasını ve hedeflerine ulaşmalarına yardımcı olmasını sağlamak, ve yeniliği artırmak, bilgi ve deneyim alışverişinde bulunmak için önde gelen teknoloji şirketleri ve akademik kurumlarla ortaklıklar kurmak."
+    }
+  },
+  "servicesSection": {
+    "title": "Hizmetlerimiz",
+    "description": "İşletme ihtiyaçlarınızı karşılamak için çeşitli hizmetler sunuyoruz",
+    "service1": {
+      "title": "Web Tasarımı ve Geliştirme",
+      "description": "İşletme ihtiyaçlarınıza uygun özel web siteleri tasarlıyor ve geliştiriyoruz. En yeni teknolojileri kullanarak üstün performans ve harika bir kullanıcı deneyimi sağlıyoruz."
+    },
+    "service2": {
+      "title": "Mobil Uygulama Geliştirme",
+      "description": "iOS ve Android platformlarıyla uyumlu mobil uygulamalar geliştiriyoruz. Yüksek performans ve sorunsuz bir kullanıcı deneyimi sunmayı garanti ediyoruz."
+    },
+    "service3": {
+      "title": "Grafik Tasarım",
+      "description": "Logo tasarımından tam görsel kimliklere kadar profesyonel grafik tasarım hizmetleri sunuyoruz. Farklılaşan bir marka imajı oluşturmanıza yardımcı oluyoruz."
+    },
+    "service4": {
+      "title": "Video Düzenleme",
+      "description": "Profesyonel video düzenleme hizmetleri sunuyoruz. Çektiğiniz görüntüleri etkileyici videolara dönüştürerek içeriklerinizi etkili bir şekilde tanıtmanıza yardımcı oluyoruz."
+    },
+    "service5": {
+      "title": "Çeviri",
+      "description": "Geniş dil yelpazesini kapsayan profesyonel çeviri hizmetleri sunuyoruz. Küresel izleyicinizle etkili iletişim kurmanızı sağlıyoruz."
+    },
+    "service6": {
+      "title": "Pazarlama",
+      "description": "Dijital pazarlama ve sosyal medya yönetimi dahil entegre pazarlama stratejileri sunuyoruz. Marka erişiminizi artırmanıza ve hedeflerinize ulaşmanıza yardımcı oluyoruz."
+    },
+    "service7": {
+      "title": "Kontrolör Programlama",
+      "description": "Sanayi ve ticari uygulamalarda kontrol ve otomasyon için özel çözümler geliştiren hassas kontrolör programlama hizmetleri sunuyoruz."
+    },
+    "service8": {
+      "title": "İç Mekan Tasarımı",
+      "description": "Konut ve ticari alanlar için iç mekan tasarım hizmetleri sunuyoruz. Kimliğinizi yansıtan işlevsel ve estetik ortamlar oluşturuyoruz."
+    }
+  },
+
+  "testimonials": {
+    "title": "Müşteri Yorumları",
+    "userTestimonial": [
+      {
+        "name": "Bay Ali Al-Mohammed",
+        "testimonial": "Şirketle olan deneyimim mükemmeldi. Tüm ihtiyaçlarımı karşılayan benzersiz bir web sitesi aldım. Ekip profesyonel ve yardımseverdi."
+      },
+      {
+        "name": "Bay Ahmed Al-Ali",
+        "testimonial": "Şirketle olan deneyimim mükemmeldi. Tüm ihtiyaçlarımı karşılayan benzersiz bir web sitesi aldım. Ekip profesyonel ve yardımseverdi."
+      }
+    ]
+  },
+  "partnershipsSection": {
+    "title": "Ortaklıklar",
+    "partnerships": [
+      "Al-Zaytoonah Uluslararası Üniversitesi",
+      "Orta Doğu Şirketi",
+      "Accept Eğitim Şirketi",
+      "Suriye Öğrenciler Birliği"
+    ],
+    "link": "Daha Fazla Detay"
+  },
+  "recentArticles": {
+    "title": "Son Makaleler",
+    "btnTitle": "Daha Fazla Oku",
+    "Articles": [
+      {
+        "title": "Mühendislik Projeleri ve Lider Hizmetler için Octo Tech Şirketi Tanıtımı",
+        "description": "Mobil uygulamalar, web siteleri ve bilgisayar yazılımlarının kapsamlı geliştirilmesini sağlıyoruz, ayrıca montaj işlemi yapıyoruz."
+      },
+      {
+        "title": "Uluslararası Bilgisayar Ehliyeti (ICDL) Eğitimi Kayıtları",
+        "description": "Eğitim ve Geliştirme Ofisi, Uluslararası Bilgisayar Ehliyeti (ICDL) eğitiminin başlatıldığını duyurdu."
+      },
+      {
+        "title": "İngilizce Konuşma Eğitimi A1 Oxford İngiliz Müfredatı - Online Öğrenme",
+        "description": "Şirket, İngilizce Konuşma Eğitimi A1 Oxford İngiliz Müfredatı paketinin başlatıldığını duyurdu."
+      }
+    ],
+    "link": "Daha Fazla Makale"
+  },
+
+  "footerSection": {
+    "description": "Uygulama geliştirme ve çekici web sitesi tasarımı alanında lider bir şirket olup, ayrıca iç tasarım hizmetleri, çeviri ve içerik yazımı da sunmaktadır. Şirket, müşterilerinin ihtiyaçlarını karşılamak ve onları gelecekteki gelişmelere uyum sağlamalarını mümkün kılmak için yenilik ve gelişime kendini adamıştır.",
+    "quickLinks": {
+      "title": "Hızlı Bağlantılar",
+      "links": {
+        "homePage": "Ana Sayfa",
+        "contactUs": "Bizimle İletişime Geçin",
+        "testimonials": "Referanslar",
+        "services": "Hizmetler",
+        "aboutUs": "Hakkımızda"
+      }
+    },
+    "followUs": "Bizi Takip Edin"
+  },
+  "bottomBar": {
+    "title": "Tüm hakları saklıdır - Octo Tech Şirketi"
+  },
+  "SignIn": {
+    "title": "Giriş Yap",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "Şifrenizi girin",
+    "submitButton": "Giriş Yap"
+  },
+  "signUpPage": {
+    "username": "Kullanıcı adı",
+    "email": "E-posta",
+    "password": "Şifre",
+    "confirmPassword": "Şifrenizi onaylayın",
+    "placeholderUsername": "kullanıcı adınız",
+    "placeholderEmail": "mail@example.com",
+    "placeholderPassword": "şifreniz",
+    "placeholderConfirmPassword": "şifrenizi onaylayın",
+    "signUp": "Kayıt Ol",
+    "submitting": "Gönderiliyor...",
+    "or": "veya",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "signIn": "Giriş Yap",
+    "signUpSuccess": "Başarıyla kayıt olundu."
+  },
+  "verification": {
+    "title": "Doğrulama Talebi",
+    "loading": "Yükleniyor...",
+    "message": "Yeni bir doğrulama kodu talep edebilirsiniz {minutes} dakika içinde."
+  },
+  "verifying": {
+    "title": "Doğrulanıyor..."
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "name": "İsim",
+    "email": "E-posta",
+    "message": "Mesaj",
+    "send": "Mesaj Gönder",
+    "sending": "Gönderiliyor...",
+    "success": "Mesaj başarıyla gönderildi",
+    "error": "Bir şeyler yanlış gitti",
+    "question": "Herhangi bir sorunuz var mı?",
+    "goToPosition": "Konuma Git",
+    "popupMessage": "Sharaa Al-Qusoor, İdlib, Suriye",
+    "description": "Tüm teknik sorularınızda size yardımcı olmak ve gerekli desteği sağlamak için buradayız. Karşılaşabileceğiniz herhangi bir soru veya sorun için bizimle iletişime geçmekten çekinmeyin. Teknik hedeflerinize en iyi şekilde ulaşmanız için buradayız ve size destek olmaktan mutluluk duyarız.",
+    "map": "Konumumuz burada.",
+    "contactInfoTitle": "  Birlikte hedeflerinizi gerçekleştirmek için çalışalım   "
+
+  },
+  "verifyEmailSubject": "E-posta Doğrulama",
+  "welcomeMessage": "Sitemize hoş geldiniz",
+  "NotFoundPage": {
+    "title": "Bulunamadı",
+    "description": "Sayfa bulunamadı"
+  }
+}
