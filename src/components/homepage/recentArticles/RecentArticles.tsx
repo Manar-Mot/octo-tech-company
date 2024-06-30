@@ -5,7 +5,8 @@ import TitleSection from "../../sharedComponent/TitleSection";
 import Image from "next/image";
 import { article1, article2, article3, bgSectionWhite } from "@/public/assets";
 import ArticleCard from "./ArticleCard";
-import Link from "next/link";
+import { Link } from "@/src/navigation";
+
 
 const RecentArticles = () => {
   const t = useTranslations("recentArticles");
@@ -48,7 +49,7 @@ const RecentArticles = () => {
         />
       ))}
       </div>
-      <Link href="/" className="text-secondary underline">
+      <Link href="/blog" className="text-secondary underline">
         {t("link")}
       </Link>
     </SectionContainer>
