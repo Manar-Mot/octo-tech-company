@@ -1,15 +1,16 @@
 "use client"
-
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { signIn } from "next-auth/react"
 
+
 import Link from "next/link"
 import { userSignInValidation } from "@/src/lib/validation/auth-validation"
 import Image from "next/image"
 import { GoogleIcon } from "@/public/assets"
+import { useTranslations } from "next-intl"
 
 interface SignInFormProps {
   callbackUrl: string
@@ -18,6 +19,7 @@ interface SignInFormProps {
 const SignInForm = ({
   callbackUrl
 }: SignInFormProps) => {
+  const t  = useTranslations()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const form = useForm<z.infer<typeof userSignInValidation>>({
@@ -42,20 +44,20 @@ const SignInForm = ({
     <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
       <div className="space-y-2">
         <div>
-          <label>Email</label>
+          <label>{t('SignIn.emailLabel')}</label>
           <input
             type="email"
-            placeholder="mail@example.com"
+            placeholder={t('SignIn.emailPlaceholder')}
             {...form.register("email")}
             className="border p-2 w-full"
           />
           {form.formState.errors.email && <p>{form.formState.errors.email.message}</p>}
         </div>
         <div>
-          <label>Password</label>
+          <label>{t('SignIn.passwordLabel')}</label>
           <input
             type="password"
-            placeholder="your password"
+            placeholder={t('SignIn.passwordPlaceholder')}
             {...form.register("password")}
             className="border p-2 w-full"
           />
@@ -67,11 +69,11 @@ const SignInForm = ({
         type="submit"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Sign In"}
+        {isSubmitting ? t('SignIn.submitting') : t('SignIn.submitButton')}
       </button>
       <div className="flex items-center justify-center my-4">
         <div className="border-b border-gray-400 w-full"></div>
-        <span className="px-2 text-gray-400">or</span>
+        <span className="px-2 text-gray-400">{t('SignIn.or')}</span>
         <div className="border-b border-gray-400 w-full"></div>
       </div>
       <button
@@ -79,13 +81,13 @@ const SignInForm = ({
         type="button"
         onClick={() => signIn("google", { callbackUrl })}
       >
-        Sign in with Google
         <Image src={GoogleIcon} alt="google-icon" className="w-4 h-auto object-cover "/>
+        {t('SignIn.signInWithGoogle')}
       </button>
       <p className="text-center text-sm text-gray-600 mt-2">
-        Don&apos;t have an account?&nbsp;
+        {t('SignIn.noAccount')} &nbsp;
         <Link className="text-blue-600 hover:underline" href="/signup">
-          Sign Up
+          {t('SignIn.signUp')}
         </Link>
       </p>
     </form>

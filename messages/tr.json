@@ -134,10 +134,15 @@
   "SignIn": {
     "title": "Giriş Yap",
     "emailLabel": "E-posta",
-    "emailPlaceholder": "E-posta adresinizi girin",
+    "emailPlaceholder": "E-postanızı girin",
     "passwordLabel": "Şifre",
     "passwordPlaceholder": "Şifrenizi girin",
-    "submitButton": "Giriş Yap"
+    "submitButton": "Giriş Yap",
+    "submitting": "Gönderiliyor...",
+    "or": "veya",
+    "signInWithGoogle": "Google ile giriş yap",
+    "noAccount": "Hesabınız yok mu?",
+    "signUp": "Kaydol"
   },
   "signUpPage": {
     "username": "Kullanıcı adı",

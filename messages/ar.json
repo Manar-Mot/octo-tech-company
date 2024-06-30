@@ -130,13 +130,18 @@
   "bottomBar": {
     "title": " جميع الحقوق محفوظة-شركة اوكتو تك"
   },
-  "SignIn": {
+ "SignIn": {
     "title": "تسجيل الدخول",
     "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
     "passwordLabel": "كلمة المرور",
     "passwordPlaceholder": "أدخل كلمة المرور",
-    "submitButton": "تسجيل الدخول"
+    "submitButton": "تسجيل الدخول",
+    "submitting": "جاري الإرسال...",
+    "or": "أو",
+    "signInWithGoogle": "تسجيل الدخول بواسطة جوجل",
+    "noAccount": "ليس لديك حساب؟",
+    "signUp": "سجل"
   },
   "signUpPage": {
     "username": "اسم المستخدم",

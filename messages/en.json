@@ -139,7 +139,12 @@
     "emailPlaceholder": "Enter your email",
     "passwordLabel": "Password",
     "passwordPlaceholder": "Enter your password",
-    "submitButton": "Sign In"
+    "submitButton": "Sign In",
+    "submitting": "Submitting...",
+    "or": "or",
+    "signInWithGoogle": "Sign in with Google",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up"
   },
   "signUpPage": {
     "username": "Username",
