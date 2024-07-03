@@ -12,7 +12,7 @@ export async function sendVerificationEmail(
   userEmail: string,
   verificationUrl: string,
   userLanguage: string,
-  verificationCode: string 
+  verificationCode:string
 ) {
   const messages = loadMessages(userLanguage);
   const templatePath = path.join(

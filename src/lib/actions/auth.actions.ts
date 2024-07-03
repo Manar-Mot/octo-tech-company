@@ -6,10 +6,6 @@ import bcrypt from "bcryptjs";
 import { nextauthOptions } from "../nextAuth-options";
 import connectDB from "../mongodb";
 import User from "../models/User";
-import { IUser } from "@/src/types/user";
-import jwt from "jsonwebtoken";
-import { sendVerificationEmail } from "../nodemailer/sendMail";
-
 export async function getUserSession() {
   const session = await getServerSession(nextauthOptions);
   return { session };

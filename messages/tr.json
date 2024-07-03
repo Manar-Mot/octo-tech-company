@@ -145,11 +145,13 @@
     "signUp": "Kaydol"
   },
   "signUpPage": {
-    "username": "Kullanıcı adı",
+    "firstName": "Ad",
+    "lastName": "Soyad",
     "email": "E-posta",
     "password": "Şifre",
     "confirmPassword": "Şifrenizi onaylayın",
-    "placeholderUsername": "kullanıcı adınız",
+    "placeholderFirstName": "Adınız",
+    "placeholderLastName": "Soyadınız",
     "placeholderEmail": "mail@example.com",
     "placeholderPassword": "şifreniz",
     "placeholderConfirmPassword": "şifrenizi onaylayın",
@@ -182,8 +184,19 @@
     "popupMessage": "Sharaa Al-Qusoor, İdlib, Suriye",
     "description": "Tüm teknik sorularınızda size yardımcı olmak ve gerekli desteği sağlamak için buradayız. Karşılaşabileceğiniz herhangi bir soru veya sorun için bizimle iletişime geçmekten çekinmeyin. Teknik hedeflerinize en iyi şekilde ulaşmanız için buradayız ve size destek olmaktan mutluluk duyarız.",
     "map": "Konumumuz burada.",
-    "contactInfoTitle": "  Birlikte hedeflerinizi gerçekleştirmek için çalışalım   "
+    "contactInfoTitle": "  Birlikte hedeflerinizi gerçekleştirmek için çalışalım   ",
+    "name_required": "İsim gerekli",
+    "email_invalid": "Geçersiz e-posta adresi",
+    "message_required": "Mesaj gerekli"
+  },
 
+  "requestMessages": {
+    "MethodNotAllowed": "Yönteme izin verilmiyor",
+    "InvalidConfirmationCode": "Geçersiz onay kodu",
+    "AccountConfirmedSuccessfully": "Hesap başarıyla onaylandı",
+    "UserAlreadyExists": "Kullanıcı zaten mevcut",
+    "UserRegisteredCheckEmail": "Kullanıcı kaydedildi. Lütfen hesabınızı doğrulamak için e-postanızı kontrol edin.",
+    "InternalServerError": "Sunucu Hatası"
   },
   "verifyEmailSubject": "E-posta Doğrulama",
   "welcomeMessage": "Sitemize hoş geldiniz",

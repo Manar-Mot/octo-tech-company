@@ -11,10 +11,14 @@ export const userSignInValidation = z.object({
 
 export const userSignUpValidation = z
   .object({
-    name: z
+    firstName: z
       .string()
-      .min(1, "Username is required")
-      .max(50, "Username must be less than 50 characters"),
+      .min(1, "firstName is required")
+      .max(50, "firstName must be less than 50 characters"),
+    lastName: z
+      .string()
+      .min(1, "lastName is required")
+      .max(50, "lastName must be less than 50 characters"),
     email: z.string().min(1, "Email is required").email("Invalid email"),
     password: z
       .string()

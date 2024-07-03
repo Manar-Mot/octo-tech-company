@@ -27,7 +27,10 @@ import article2 from "./images/Article2.svg";
 import article3 from "./images/Article3.svg";
 import contactHeroImage from "./images/contactHeroImage.svg";
 import GoogleIcon from "./icons/google-icon.svg";
+import confirmImage from "./images/confirmImage.svg";
+import authImage from "./images/authImage.svg"
 export {
+  authImage,
   AppLogo,
   AppLogoWhite,
   heroImages,
@@ -57,4 +60,5 @@ export {
   article2,
   article3,
   GoogleIcon,
+  confirmImage,
 };

@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import ContactForm from "./ContactForm";
+import ContactForm from "../auth/form/ContactForm";
 import SocialLinks from "./SocialLinks";
 import MapComponent from "./Map";
 import SectionContainer from "../sharedComponent/SectionContainer";
 
-const ContactFormSection = () => {
+const ContactFormSection = ({locale}:{locale:string}) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 

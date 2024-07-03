@@ -1,65 +1,75 @@
-import { NextAuthOptions } from "next-auth"
-import GoogleProvider from "next-auth/providers/google"
-import CredentialsProvider from "next-auth/providers/credentials"
-import { signInWithOauth, getUserByEmail, signInWithCredentials } from "./actions/auth.actions"
+import { NextAuthOptions } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
+import {
+  signInWithOauth,
+  getUserByEmail,
+  signInWithCredentials,
+} from "./actions/auth.actions";
 
 export const nextauthOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/signIn", // app/signin
-    error: "/error", // app/error
+    signIn: "/auth/signIn",
+    error: "/error",
   },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          scope:
+            "openid profile email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+        },
+      },
     }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email", required: true },
-        password: { label: "Password", type: "password", required: true }
+        password: { label: "Password", type: "password", required: true },
       },
       async authorize(credentials) {
         // console.log(credentials)
         if (!credentials?.email || !credentials?.password) {
-          return null
+          return null;
         }
 
         const user = await signInWithCredentials({
           email: credentials?.email,
-          password: credentials?.password
-        })
+          password: credentials?.password,
+        });
 
         // console.log({user})
-        return user
-      }
-    })
+        return user;
+      },
+    }),
   ],
   callbacks: {
     async signIn({ account, profile }) {
       // console.log({account, profile})
       if (account?.type === "oauth" && profile) {
-        return await signInWithOauth({account, profile})
+        return await signInWithOauth({ account, profile });
       }
-      return true
+      return true;
     },
     async jwt({ token, trigger, session }) {
       // console.log({token})
       // console.log({trigger, session})
       if (trigger === "update") {
-        token.name = session.name
+        token.name = session.name;
       } else {
         if (token.email) {
-          const user = await getUserByEmail({email: token.email})
+          const user = await getUserByEmail({ email: token.email });
           // console.log({user})
-          token.name = user.name
-          token._id = user._id
-          token.role = user.role
-          token.provider = user.provider
+          token.name = user.name;
+          token._id = user._id;
+          token.role = user.role;
+          token.provider = user.provider;
         }
       }
-      return token
+      return token;
     },
     async session({ session, token }) {
       // console.log({session, token})
@@ -70,9 +80,9 @@ export const nextauthOptions: NextAuthOptions = {
           name: token.name,
           _id: token._id,
           role: token.role,
-          provider: token.provider
-        }
-      }
-    }
-  }
-}
+          provider: token.provider,
+        },
+      };
+    },
+  },
+};

@@ -147,11 +147,13 @@
     "signUp": "Sign Up"
   },
   "signUpPage": {
-    "username": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm your password",
-    "placeholderUsername": "your username",
+ "placeholderFirstName": "Your First Name",
+    "placeholderLastName": "Your Last Name",
     "placeholderEmail": "mail@example.com",
     "placeholderPassword": "your password",
     "placeholderConfirmPassword": "confirm your password",
@@ -184,7 +186,19 @@
     "question": "Do you have any questions?",
     "description": "We are here to assist you with all your technical inquiries and provide the necessary support. Do not hesitate to reach out to us for any questions or issues you may encounter. We are here to support and help you achieve your technical goals in the best possible way.",
     "map": "Our location here.",
-    "contactInfoTitle": "  Let's work together to achieve your goals "
+    "contactInfoTitle": "  Let's work together to achieve your goals ",
+    "name_required": "Name is required",
+    "email_invalid": "Invalid email address",
+    "message_required": "Message is required"
+
+  },
+  "requestMessages":{
+    "MethodNotAllowed": "Method not allowed",
+    "InvalidConfirmationCode": "Invalid confirmation code",
+    "AccountConfirmedSuccessfully": "Account confirmed successfully",
+    "UserAlreadyExists": "User already exists",
+    "UserRegisteredCheckEmail": "User registered. Please check your email to verify your account.",
+    "InternalServerError": "Internal Server Error"
   },
   "verifyEmailSubject": "Email Verification",
   "welcomeMessage": "Welcome to our site",

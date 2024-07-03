@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
-import ButtonComp from "../sharedComponent/ButtonComp";
+
 import { LinkItem } from "@/src/types";
 import { Link, useRouter } from "@/src/navigation";
+import ButtonComp from "../../sharedComponent/ButtonComp";
 interface LinkListProps {
   links: LinkItem[];
   isScrolled: boolean;
@@ -12,11 +13,12 @@ interface LinkListProps {
 }
 const LinkList: React.FC<LinkListProps> = ({ links, isScrolled, btnTite }) => {
   const [open, setOpen] = useState(false);
-  const router =useRouter();
+  const router = useRouter();
 
   const toggleOpenList = () => {
     setOpen(!open);
   };
+
   return (
     <>
       <ul
@@ -63,11 +65,16 @@ const LinkList: React.FC<LinkListProps> = ({ links, isScrolled, btnTite }) => {
               href={link.href}
               key={index}
               className="transition-all ease-linear duration-75 cursor-pointer hover:text-accent"
+              onClick={() => toggleOpenList()}
             >
               {link.link}
             </Link>
           ))}
-          <ButtonComp content={btnTite} isPrimary={true} event={()=>router.push('/services')} />
+          <ButtonComp
+            content={btnTite}
+            isPrimary={true}
+            event={() => router.push("/services")}
+          />
         </ul>
       </div>
     </>

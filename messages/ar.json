@@ -130,7 +130,7 @@
   "bottomBar": {
     "title": " جميع الحقوق محفوظة-شركة اوكتو تك"
   },
- "SignIn": {
+  "SignIn": {
     "title": "تسجيل الدخول",
     "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
@@ -144,11 +144,13 @@
     "signUp": "سجل"
   },
   "signUpPage": {
-    "username": "اسم المستخدم",
+    "firstName": "الأسم الأول ",
+    "lastName": " الكنية",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
     "confirmPassword": "تأكيد كلمة المرور",
-    "placeholderUsername": "اسم المستخدم الخاص بك",
+    "placeholderFirstName": "اسم المستخدم الخاص بك",
+    "placeholderLastName": "الكنية  الخاصة بك",
     "placeholderEmail": "mail@example.com",
     "placeholderPassword": "كلمة المرور الخاصة بك",
     "placeholderConfirmPassword": "تأكيد كلمة المرور الخاصة بك",
@@ -177,12 +179,23 @@
     "send": "إرسال الرسالة",
     "sending": "جارٍ الإرسال...",
     "success": "تم إرسال الرسالة بنجاح",
+    "name_required": "الاسم مطلوب",
+    "email_invalid": "عنوان البريد الإلكتروني غير صالح",
+    "message_required": "الرسالة مطلوبة",
     "error": "حدث خطأ ما",
     "goToPosition": "اذهب إلى الموقع",
     "popupMessage": "شارع القصور، إدلب، سوريا",
     "map": "موقعنا هنا.",
     "question": "هل لديك أية أسئلة؟",
     "description": "نحن هنا لمساعدتك في جميع استفساراتك التقنية وتقديم الدعم اللازم. لا تتردد في التواصل معنا لأي استفسارات أو مشكلات قد تواجهها. نحن هنا لدعمك ومساعدتك في تحقيق أهدافك التقنية بأفضل طريقة ممكنة."
+  },
+  "requestMessages": {
+    "MethodNotAllowed": "الطريقة غير مسموح بها",
+    "InvalidConfirmationCode": "رمز التأكيد غير صالح",
+    "AccountConfirmedSuccessfully": "تم تأكيد الحساب بنجاح",
+    "UserAlreadyExists": "المستخدم موجود بالفعل",
+    "UserRegisteredCheckEmail": "تم تسجيل المستخدم. يرجى التحقق من بريدك الإلكتروني لتأكيد حسابك.",
+    "InternalServerError": "خطأ في الخادم الداخلي"
   },
   "NotFoundPage": {
     "title": "غير موجود",

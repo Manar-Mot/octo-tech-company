@@ -5,20 +5,21 @@ export const locales = ["en", "ar", "tr"] as const;
 
 export const pathnames: Pathnames<typeof locales> = {
   "/": "/",
-  "/signUp": {
-    en: "/signUp",
-    ar: "/signUp",
-    tr: "/kayit-ol",
+  "/auth/signUp": {
+    en: "/auth/signUp",
+    ar: "/auth/signUp",
+    tr: "/auth/kayit-ol",
   },
-  "/request-verification": {
-    en: "/request-verification",
-    ar: "/request-verification",
-    tr: "/request-verification",
+
+  "/auth/request-verification": {
+    en: "/auth/request-verification",
+    ar: "/auth/request-verification",
+    tr: "/auth/request-verification",
   },
-  "/signIn": {
-    en: "/signIn",
-    ar: "/signIn",
-    tr: "/giris-yap",
+  "/auth/signIn": {
+    en: "/auth/signIn",
+    ar: "/auth/signIn",
+    tr: "/auth/giris-yap",
   },
   "/blog": {
     en: "/blog",

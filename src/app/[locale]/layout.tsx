@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Head from "next/head";
 import Container from "@/src/components/sharedComponent/Container";
-import NavBar from "@/src/components/NavBar/NavBar";
-import TopBar from "@/src/components/TopBar/TopBar";
 import { NextIntlClientProvider } from "next-intl";
 import Footer from "@/src/components/footer/Footer";
-import BottomBar from "@/src/components/bottomBar/BottomBar";
 import { getMessages } from "next-intl/server";
 import React from "react";
+import Header from "@/src/components/header/Header";
+import WithProviders from "../../providers/contextsProviders/contextProvider";
+import UserProvider from "@/src/providers/contextsProviders/UserProvider";
+import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -21,10 +23,12 @@ export const metadata: Metadata = {
   description: "Software Company",
 };
 
-const RootLayout = async ({ children, params: { locale } }: RootLayoutProps) => {
+const RootLayout = async ({
+  children,
+  params: { locale },
+}: RootLayoutProps) => {
   const messages = await getMessages();
-  // const session = await getServerSession(authOptions as GetServerSessionOptions[]);
-  
+
   let fontFamily = "";
   switch (locale) {
     case "ar":
@@ -68,21 +72,24 @@ const RootLayout = async ({ children, params: { locale } }: RootLayoutProps) => 
         style={{ fontFamily }}
         suppressHydrationWarning={true}
       >
-        {/* <SessionProvider session={null}> */}
-          <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages}>
+          <SessionProvider>
+        <Toaster
+          toastOptions={{
+            style: { background: `rgb(51 65 85)`, color: "#fff" },
+          }}
+        />
+          <UserProvider>
             <Container>
-              <div className="sticky top-0 left-0 z-[999]">
-                <TopBar />
-                <NavBar locale={locale} />
-              </div>
+              <Header locale={locale} />
               <main>{children}</main>
               <footer>
                 <Footer />
-                <BottomBar />
               </footer>
             </Container>
-          </NextIntlClientProvider>
-        {/* </SessionProvider> */}
+          </UserProvider>
+          </SessionProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
