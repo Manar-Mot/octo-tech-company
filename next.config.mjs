@@ -6,16 +6,17 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   },
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
       },
       {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
       },
     ],
   },
