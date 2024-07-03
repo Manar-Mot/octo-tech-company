@@ -5,7 +5,7 @@ import SocialLinks from "./SocialLinks";
 import MapComponent from "./Map";
 import SectionContainer from "../sharedComponent/SectionContainer";
 
-const ContactFormSection = ({locale}:{locale:string}) => {
+const ContactFormSection = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 

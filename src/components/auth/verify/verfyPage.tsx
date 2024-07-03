@@ -47,7 +47,7 @@ const VerifyPage = () => {
     };
 
     verifyToken();
-  }, [router]);
+  }, [router,token]);
 
   const handleResendVerification = async () => {
     if (!token) return;

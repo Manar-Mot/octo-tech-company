@@ -68,7 +68,7 @@ export const UserContextProvider = (props: Props) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [router,t]);
 
   // const signIn = useCallback(async (email: string, password: string) => {
   //   setLoading(true);

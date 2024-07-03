@@ -1,4 +1,4 @@
-import { LocaleProvider } from "../../contexts/LocaleContext";
+// import { LocaleProvider } from "../../contexts/LocaleContext";
 import React from "react";
 import UserProvider from "./UserProvider";
 

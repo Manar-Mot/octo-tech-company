@@ -4,7 +4,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { useLocale } from '@/src/contexts/LocaleContext';
 import { getValidationMessages } from '@/src/lib/validation/contact-us-validation';
 
 
