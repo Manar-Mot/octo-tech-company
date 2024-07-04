@@ -1,4 +1,4 @@
-import { NextAuthOptions } from "next-auth";
+import { getServerSession, NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {
@@ -82,6 +82,13 @@ export const nextauthOptions: NextAuthOptions = {
           provider: token.provider,
         },
       };
+    },
+    async redirect({ url, baseUrl }) {
+      const session = await getServerSession(nextauthOptions);
+      if (session?.user?.role === "Admin") {
+        return baseUrl + "/admin";
+      }
+      return url || baseUrl;
     },
   },
 };
