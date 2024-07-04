@@ -1,4 +1,4 @@
-"use client";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +10,7 @@ import Image from "next/image";
 import { GoogleIcon } from "@/public/assets";
 import { useTranslations } from "next-intl";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useRouter } from "@/src/navigation";
+import { useRouter } from "next/router";
 import { getUserSession } from "@/src/lib/actions/auth.actions";
 
 interface SignInFormProps {
@@ -37,13 +37,10 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
       redirect: false,
       email: values.email,
       password: values.password,
-      // callbackUrl,
     });
 
     if (result?.error) {
-      // Handle error (e.g., show a notification)
     } else {
-      // Fetch the session to get the user role
       const session = await getUserSession();
       const role = session?.user?.role;
 
@@ -54,6 +51,22 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
       }
     }
 
+    setIsSubmitting(false);
+  }
+
+  async function onGoogleSignIn() {
+    setIsSubmitting(true);
+    const result = await signIn("google", { callbackUrl });
+
+    if (!result?.error) {
+      const session = await getUserSession();
+      const role = session?.user?.role;
+      if (role === "Admin") {
+        router.push("/admin");
+      } else {
+        router.push(callbackUrl || "/");
+      }
+    }
     setIsSubmitting(false);
   }
 
@@ -116,7 +129,7 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
       <button
         className="w-full bg-transparent transition-all ease-linear duration-75 hover:bg-slate-100 text-title py-2 px-4 rounded flex justify-center items-center gap-2 border border-slate-300"
         type="button"
-        onClick={() => signIn("google", { callbackUrl })}
+        onClick={onGoogleSignIn}
       >
         <Image
           src={GoogleIcon}
