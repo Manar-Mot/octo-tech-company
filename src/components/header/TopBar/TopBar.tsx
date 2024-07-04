@@ -11,7 +11,7 @@ const TopBar = ({ locale }: { locale: string }) => {
 
   return (
     <div
-      className={`w-full bg-secondary text-white px-4 lg:px-10  py-2 flex flex-row-reverse items-center gap-5 text-[12px] lg:text-[15px] ${
+      className={`w-full bg-title text-white px-4 lg:px-10  py-2 flex flex-row-reverse items-center gap-5 text-[12px] lg:text-[15px] ${
         path.includes("auth") ? "border-b border-slate-300" : ""
       }`}
     >
