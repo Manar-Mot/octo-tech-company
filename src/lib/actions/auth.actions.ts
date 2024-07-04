@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 import { nextauthOptions } from "../nextAuth-options";
 import connectDB from "../mongodb";
 import User from "../models/User";
+import { getLocale } from "next-intl/server";
 export async function getUserSession() {
   const session = await getServerSession(nextauthOptions);
   return { session };
@@ -25,6 +26,7 @@ export async function signInWithOauth({
   profile,
 }: SignInWithOauthParams) {
   await connectDB();
+  const locale = await getLocale();
 
   const user = await User.findOne({ email: profile.email });
 
@@ -46,6 +48,7 @@ export async function signInWithOauth({
     image: profile.picture,
     provider: account.provider,
     isConfirmed: true,
+    locale: locale,
   });
 
   await newUser.save();
@@ -79,7 +82,6 @@ export async function updateUserProfile({ name }: UpdateUserProfileParams) {
   // console.log(session)
 
   await connectDB();
-
   try {
     if (!session) {
       throw new Error("Unauthorization!");
