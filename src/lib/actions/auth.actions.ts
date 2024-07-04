@@ -24,12 +24,16 @@ export async function signInWithOauth({
   account,
   profile,
 }: SignInWithOauthParams) {
-  // console.log({account, profile})
-  connectDB();
+  await connectDB();
 
   const user = await User.findOne({ email: profile.email });
 
-  if (user) return true;
+  if (user) {
+    if (!user.isConfirmed) {
+      throw new Error("Account not confirmed");
+    }
+    return true;
+  }
 
   const splitName = profile.name?.split(" ") || [];
   const firstName = splitName[0];
@@ -41,11 +45,12 @@ export async function signInWithOauth({
     email: profile.email,
     image: profile.picture,
     provider: account.provider,
+    isConfirmed: true,
   });
-  // console.log(newUser)
+
   await newUser.save();
 
-  return true;
+  throw new Error("Account not confirmed. Please confirm your email.");
 }
 
 interface GetUserByEmailParams {
@@ -53,7 +58,7 @@ interface GetUserByEmailParams {
 }
 
 export async function getUserByEmail({ email }: GetUserByEmailParams) {
-  connectDB();
+  await connectDB();
 
   const user = await User.findOne({ email }).select("-password");
 
@@ -73,7 +78,7 @@ export async function updateUserProfile({ name }: UpdateUserProfileParams) {
   const session = await getServerSession(nextauthOptions);
   // console.log(session)
 
-  connectDB();
+  await connectDB();
 
   try {
     if (!session) {
@@ -102,7 +107,6 @@ interface SignInWithCredentialsParams {
   email: string;
   password: string;
 }
-
 
 export async function signInWithCredentials({
   email,
@@ -141,7 +145,7 @@ export async function changeUserPassword({
   const session = await getServerSession(nextauthOptions);
   // console.log(session)
 
-  connectDB();
+  await connectDB();
   console.log("=========after connect db");
   try {
     if (!session) {
