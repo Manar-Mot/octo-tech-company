@@ -1,4 +1,4 @@
-import { getServerSession, NextAuthOptions } from "next-auth";
+import { getServerSession, NextAuthOptions, User } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {
@@ -6,7 +6,7 @@ import {
   getUserByEmail,
   signInWithCredentials,
 } from "./actions/auth.actions";
-import { getSession } from "next-auth/react";
+import { getSession } from "../utils/getSession";
 
 export const nextauthOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -58,21 +58,25 @@ export const nextauthOptions: NextAuthOptions = {
     },
     async jwt({ token, trigger, session }) {
       if (trigger === "update") {
-        token.name = session.name;
+        token.firstName = session.firstName;
+        token.lastName = session.lastName;
       } else {
         if (token.email) {
-          const user = await getUserByEmail({ email: token.email });
-          token.firstName = user.firstName;
-          token.lastName = user.lastName;
-          token._id = user._id;
-          token.role = user.role;
-          token.provider = user.provider;
+          const user: User = await getUserByEmail({ email: token.email });
+          if (user) {
+            token.firstName = user.firstName;
+            token.lastName = user.lastName;
+            token._id = user._id;
+            token.role = user.role;
+            token.provider = user.provider;
+          }
         }
       }
       return token;
     },
     async session({ session, token }) {
-      return {
+    
+      const s={
         ...session,
         user: {
           ...session.user,
@@ -81,15 +85,11 @@ export const nextauthOptions: NextAuthOptions = {
           _id: token._id,
           role: token.role,
           provider: token.provider,
-        },
-      };
+        },}
+
+      return {...s}
+    
     },
-    async redirect({ url, baseUrl }) {
-      const session = await getServerSession();
-      if (session?.user?.role === "Admin") {
-        return baseUrl + "/admin";
-      }
-      return url || baseUrl;
-    },
+  
   },
 };

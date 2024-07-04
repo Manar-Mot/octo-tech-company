@@ -9,7 +9,7 @@ import User from "../models/User";
 import { getLocale } from "next-intl/server";
 export async function getUserSession() {
   const session = await getServerSession(nextauthOptions);
-  return { session };
+  return  session ;
 }
 
 interface ExtendedProfile extends Profile {
@@ -69,8 +69,8 @@ export async function getUserByEmail({ email }: GetUserByEmailParams) {
     throw new Error("User does not exist!");
   }
 
-  // console.log({user})
-  return { ...user, _id: user._id.toString() };
+
+  return { ...user.toObject(), _id: user._id.toString() };
 }
 
 export interface UpdateUserProfileParams {
@@ -131,7 +131,8 @@ export async function signInWithCredentials({
   if (!user.confirmed) {
     throw new Error("Account not confirmed");
   }
-
+console.log("================================user")
+console.log(user)
   return { ...user.toObject(), _id: user._id.toString() };
 }
 

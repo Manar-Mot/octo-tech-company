@@ -59,7 +59,7 @@ const UpdateForm = ({
           {isSubmitting ? "Submitting..." : "Update"}
         </button>
       </form>
-      {session?.user.provider === "credentials" && <>
+      {session?.user?.provider === "credentials" && <>
         <div className="flex items-center justify-center mt-4 mb-8">
           <div className="border-b border-gray-400 w-full"></div>
         </div>

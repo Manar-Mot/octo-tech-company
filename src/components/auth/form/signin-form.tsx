@@ -3,13 +3,15 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import Link from "next/link";
 import { userSignInValidation } from "@/src/lib/validation/auth-validation";
 import Image from "next/image";
 import { GoogleIcon } from "@/public/assets";
 import { useTranslations } from "next-intl";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useRouter } from "@/src/navigation";
+import { getUserSession } from "@/src/lib/actions/auth.actions";
 
 interface SignInFormProps {
   callbackUrl: string;
@@ -19,6 +21,7 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
   const t = useTranslations();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof userSignInValidation>>({
     resolver: zodResolver(userSignInValidation),
@@ -30,11 +33,27 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
 
   async function onSubmit(values: z.infer<typeof userSignInValidation>) {
     setIsSubmitting(true);
-    await signIn("credentials", {
+    const result = await signIn("credentials", {
+      redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl,
+      // callbackUrl,
     });
+
+    if (result?.error) {
+      // Handle error (e.g., show a notification)
+    } else {
+      // Fetch the session to get the user role
+      const session = await getUserSession();
+      const role = session?.user?.role;
+
+      if (role === "Admin") {
+        router.push("/admin");
+      } else {
+        router.push(callbackUrl || "/");
+      }
+    }
+
     setIsSubmitting(false);
   }
 

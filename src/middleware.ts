@@ -1,7 +1,8 @@
 import createMiddleware from "next-intl/middleware";
 import { localePrefix, defaultLocale, locales, pathnames } from "./config";
 import { withAuth } from "next-auth/middleware";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
 
 const intlMiddleware = createMiddleware({
   defaultLocale,
@@ -11,7 +12,7 @@ const intlMiddleware = createMiddleware({
 });
 
 const authMiddleware = withAuth(
-  function onSuccess(req) {
+  async function onSuccess(req: NextRequest) {
     return intlMiddleware(req);
   },
   {
@@ -23,6 +24,7 @@ const authMiddleware = withAuth(
     },
   }
 );
+
 export default function middleware(req: NextRequest) {
   // Define a regex pattern for private URLs
   const excludePattern = "^(/(" + locales.join("|") + "))?/admin/?.*?$";
