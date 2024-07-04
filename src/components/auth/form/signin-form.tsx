@@ -39,7 +39,7 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full mt-8">
       <div className="space-y-2">
         <div>
           <label>{t("SignIn.emailLabel")}</label>

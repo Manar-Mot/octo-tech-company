@@ -7,7 +7,7 @@ import LinkList from "./LinkList";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LinkItem } from "@/src/types";
-import { useRouter } from "@/src/navigation";
+import { usePathname, useRouter } from "@/src/navigation";
 import TopBar from "../TopBar/TopBar";
 import ButtonComp from "../../sharedComponent/ButtonComp";
 
@@ -16,6 +16,8 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ locale }) => {
+  const pathname = usePathname();
+
   const t = useTranslations("navBar");
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
@@ -63,10 +65,11 @@ const NavBar: React.FC<NavBarProps> = ({ locale }) => {
     };
   }, []);
 
+  if (pathname.includes("auth")) {
+    return <></>;
+  }
   return (
     <>
-      
-
       <nav
         className={`z-[900] w-full py-2 px-4 lg:px-8 flex items-center justify-between gap-8 transition-all ease-linear duration-75 ${
           isScrolled ? "bg-white shadow-md" : "bg-[rgba(221,224,248,0.4)]"
