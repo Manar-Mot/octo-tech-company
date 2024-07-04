@@ -28,7 +28,8 @@ import article3 from "./images/Article3.svg";
 import contactHeroImage from "./images/contactHeroImage.svg";
 import GoogleIcon from "./icons/google-icon.svg";
 import confirmImage from "./images/confirmImage.svg";
-import authImage from "./images/authImage.svg"
+import authImage from "./images/authImage.svg";
+import authRes from "./images/authRes.svg";
 export {
   authImage,
   AppLogo,
@@ -61,4 +62,5 @@ export {
   article3,
   GoogleIcon,
   confirmImage,
+  authRes,
 };

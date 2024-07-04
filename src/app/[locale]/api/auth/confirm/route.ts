@@ -31,6 +31,7 @@ export async function POST(req: NextRequest) {
       {
         success: true,
         message: "Account verified successfully. You can now sign in.",
+        user:user
       },
       { status: 200 }
     );

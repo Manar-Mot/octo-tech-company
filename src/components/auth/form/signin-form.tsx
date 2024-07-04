@@ -50,7 +50,9 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
             className="border p-2 w-full"
           />
           {form.formState.errors.email && (
-            <p>{form.formState.errors.email.message}</p>
+            <p className="text-red-600 text-[14px]">
+              {form.formState.errors.email.message}
+            </p>
           )}
         </div>
         <div>
@@ -74,7 +76,9 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
             </div>
           </div>
           {form.formState.errors.password && (
-            <p>{form.formState.errors.password.message}</p>
+            <p className="text-red-600 text-[14px]">
+              {form.formState.errors.password.message}
+            </p>
           )}
         </div>
       </div>

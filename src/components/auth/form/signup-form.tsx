@@ -34,7 +34,7 @@ const SignUpForm = ({ locale }: { locale: string }) => {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full mt-4">
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full mt-8">
       <div className="space-y-2">
         <div>
           <label>{t("firstName")}</label>

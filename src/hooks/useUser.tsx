@@ -18,8 +18,8 @@ interface UserContextProps {
   loading: boolean;
   error: boolean;
   signUp: (values: SignUpValues) => Promise<void>;
-  // signIn: (email: string, password: string) => Promise<void>;
-  // signOut: () => void;
+  verifyToken: (token: string) => Promise<void>;
+  isAccountConfirmed: boolean; // حالة التأكيد على الحساب
   handleSetError: () => void;
   handleOffError: () => void;
 }
@@ -35,6 +35,7 @@ export const UserContextProvider = (props: Props) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [isAccountConfirmed, setIsAccountConfirmed] = useState(false); // حالة التأكيد على الحساب
   const router = useRouter();
 
   useEffect(() => {
@@ -44,71 +45,59 @@ export const UserContextProvider = (props: Props) => {
     }
   }, []);
 
-  const signUp = useCallback(async (values: SignUpValues) => {
-    setLoading(true);
-    try {
-      const response = await axios.post("/api/auth/signUp", {
-        ...values,
-        locale: "ar",
-      });
+  const signUp = useCallback(
+    async (values: SignUpValues) => {
+      setLoading(true);
+      try {
+        const response = await axios.post("/api/auth/signUp", {
+          ...values,
+          locale: "ar",
+        });
 
-      if (response.status === 200) {
-        setUser(response.data.user);
-        localStorage.setItem("userInfo", JSON.stringify(response.data.user));
-        toast.success(t("signUpSuccess"));
-        router.push(`/auth/request-verification`);
-      } else {
+        if (response.status === 200) {
+          setUser(response.data.user);
+          localStorage.setItem("userInfo", JSON.stringify(response.data.user));
+          toast.success(t("signUpSuccess"));
+          router.push(`/auth/request-verification`);
+        } else {
+          setError(true);
+          toast.error(response.data.message || "Something went wrong");
+        }
+      } catch (error) {
         setError(true);
-        toast.error(response.data.message || "Something went wrong");
-        alert("Failed to register user");
+        toast.error("Something went wrong");
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      setError(true);
-      toast.error("Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  }, [router,t]);
+    },
+    [router, t]
+  );
 
-  // const signIn = useCallback(async (email: string, password: string) => {
-  //   setLoading(true);
-  //   try {
-  //     const res = await fetch("/api/signin", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ email, password }),
-  //     });
-
-  //     const data = await res.json();
-
-  //     if (res.ok) {
-  //       setUser({ _id: data.userId, email });
-  //       localStorage.setItem(
-  //         "user",
-  //         JSON.stringify({ _id: data.userId, email })
-  //       );
-  //       toast.success("User signed in successfully");
-  //       router.push("/dashboard"); // تغيير المسار إلى الصفحة المناسبة بعد تسجيل الدخول
-  //     } else {
-  //       setError(true);
-  //       toast.error(data.message || "Something went wrong");
-  //     }
-  //   } catch (err) {
-  //     setError(true);
-  //     toast.error("Something went wrong");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }, []);
-
-  // const signOut = useCallback(() => {
-  //   setUser(null);
-  //   localStorage.removeItem("user");
-  //   toast.success("User signed out successfully");
-  //   router.push("/auth/signin"); // تغيير المسار إلى صفحة تسجيل الدخول
-  // }, []);
+  const verifyToken = useCallback(
+    async (token: string) => {
+      if (!token) return;
+      try {
+        const res = await axios.post(`/api/auth/confirm`, { token });
+        if (res.status === 200) {
+          setUser(res.data.user);
+          localStorage.setItem("userInfo", JSON.stringify(res.data.user));
+          setIsAccountConfirmed(true); // تعيين حالة التأكيد على الحساب إلى true
+          toast.success("Account verified successfully");
+          router.push("/auth/signIn");
+        } else if (res.status === 400) {
+          setError(true);
+          toast.error("Invalid token");
+        } else {
+          setError(true);
+          toast.error("Error verifying token");
+        }
+      } catch (error) {
+        setError(true);
+        toast.error("Error verifying token");
+      }
+    },
+    [router]
+  );
 
   const handleSetError = useCallback(() => {
     setError(true);
@@ -123,8 +112,8 @@ export const UserContextProvider = (props: Props) => {
     loading,
     error,
     signUp,
-    // signIn,
-    // signOut,
+    verifyToken,
+    isAccountConfirmed, // تمرير حالة التأكيد على الحساب كجزء من قيمة السياق
     handleSetError,
     handleOffError,
   };
@@ -134,7 +123,8 @@ export const UserContextProvider = (props: Props) => {
 
 export const useUser = () => {
   const context = useContext(UserContext);
-  if (context === null)
+  if (!context) {
     throw new Error("useUser must be used within a UserContextProvider");
+  }
   return context;
 };

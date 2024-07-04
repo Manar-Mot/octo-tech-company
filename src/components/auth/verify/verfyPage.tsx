@@ -13,7 +13,7 @@ import { useUser } from "@/src/hooks/useUser";
 
 const VerifyPage = () => {
   const router = useRouter();
-  const {user} =useUser()
+  const { user, verifyToken, isAccountConfirmed } = useUser(); // استخدام حالة isAccountConfirmed من useContext
   const [showResendLink, setShowResendLink] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModel = () => {
@@ -30,32 +30,28 @@ const VerifyPage = () => {
   const token = useSearchParams().get("token");
 
   useEffect(() => {
-    const verifyToken = async () => {
-      if (!token) return;
-      try {
-        const res = await axios.post(`/api/auth/confirm`, { token });
-        if (res.status === 200) {
-          router.push("/auth/signIn");
-        } else if (res.status === 400) {
-          setShowResendLink(true);
-        } else {
-          console.error("Error verifying token:", res.statusText);
-        }
-      } catch (error) {
-        console.error("Error verifying token:", error);
-      }
-    };
+    if (user?.confirmed) {
+      router.push("/auth/signIn");
+    }
+  }, [user?.confirmed, router]);
 
-    verifyToken();
-  }, [router,token]);
+  useEffect(() => {
+    if (isAccountConfirmed) { 
+      router.push("/auth/signIn");
+    } else {
+      verifyToken(token as string); // استدعاء verifyToken إذا لم تكن حساب المستخدم مؤكدًا بعد
+    }
+  }, [router, token, verifyToken, isAccountConfirmed]);
 
   const handleResendVerification = async () => {
-    if (!token) return;
+   
 
     try {
-      const res = await axios.post(`/api/auth/resend-verification`, { token });
+      const res = await axios.post(`/api/auth/resend-verification`, { email:user?.email,locale:"ar" });
       if (res.status === 200) {
         console.log("تم إعادة إرسال رابط التحقق بنجاح");
+        setShowResendLink(false); // يجب إخفاء رابط إعادة الإرسال بمجرد الضغط عليه
+        setTimeout(() => setShowResendLink(true), 600000); // إعادة إظهار رابط إعادة الإرسال بعد 10 دقائق (600000 مللي ثانية)
       } else {
         console.error("Error resending verification link:", res.statusText);
         alert(
@@ -68,13 +64,13 @@ const VerifyPage = () => {
         "حدث خطأ أثناء إعادة إرسال رابط التحقق. الرجاء المحاولة مرة أخرى لاحقًا."
       );
     }
-    handleOpenModel()
+    handleOpenModel();
   };
 
   const handleVerifyCode = async () => {
     try {
       const res = await axios.post(`/api/auth/verify-code`, {
-        email:user?.email,
+        email: user?.email,
         otp: verificationCodes.join(""),
       });
       if (res.status === 200) {
@@ -111,23 +107,27 @@ const VerifyPage = () => {
             verificationCodes={verificationCodes}
             handleOpenModal={handleOpenModel}
           />
-          <Image src={confirmImage} alt="confirm  " className=" w-[200px] h-auto md:w-auto transform ltr:scale-x-[-1] mt-10 lg:mt-0" />
+          <Image
+            src={confirmImage}
+            alt="confirm  "
+            className=" w-[200px] h-auto md:w-auto transform ltr:scale-x-[-1] mt-10 lg:mt-0"
+          />
         </div>
       </div>
       <Modal handleOpen={handleOpenModel} open={openModal}>
-       <div className="flex flex-col items-center gap-10">
-        <p className="text-pargraph ">
-          لم تتلق أيه رسالة على بريدك الإلكتروني أو صلاحية الرابط منتهية يمكنك
-          إعادة إرسال طلب تحقق من هنا
-        </p>
-        <button
-          className="bg-accent text-white py-2 px-4 text-[16px] rounded cursor-pointer mb-2
+        <div className="flex flex-col items-center gap-10">
+          <p className="text-pargraph ">
+            لم تتلق أيه رسالة على بريدك الإلكتروني أو صلاحية الرابط منتهية يمكنك
+            إعادة إرسال طلب تحقق من هنا
+          </p>
+          <button
+            className="bg-accent text-white py-2 px-4 text-[16px] rounded cursor-pointer mb-2
          transition-all ease-linear duration-75 hover:bg-secondary mx-auto"
-          onClick={handleResendVerification}
-        >
-          تأكيد إعادة إرسال رابط التحقق 
-        </button>
-        </div> 
+            onClick={()=>handleResendVerification()}
+          >
+             إعادة إرسال رابط التحقق
+          </button>
+        </div>
       </Modal>
     </SectionContainer>
   );

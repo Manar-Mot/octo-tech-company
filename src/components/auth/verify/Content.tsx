@@ -113,7 +113,7 @@ const Content: React.FC<ContentProps> = ({
           className="bg-accent text-white py-2 px-4 text-[16px] rounded cursor-pointer mb-2 transition-all ease-linear duration-75 hover:bg-secondary"
           onClick={handleOpenModal}
         >
-          إعادة إرسال رابط التحقق
+            حدث مشكلة أو لم تتلق رمز التحقق؟ 
         </button>
       {/* )} */}
     </div>
