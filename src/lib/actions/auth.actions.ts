@@ -52,8 +52,8 @@ export async function signInWithOauth({
   });
 
   await newUser.save();
+  return true;
 
-  throw new Error("Account not confirmed. Please confirm your email.");
 }
 
 interface GetUserByEmailParams {
