@@ -31,7 +31,7 @@ export async function signInWithOauth({
   const user = await User.findOne({ email: profile.email });
 
   if (user) {
-    if (!user.isConfirmed) {
+    if (!user.confirmed) {
       throw new Error("Account not confirmed");
     }
     return true;
@@ -47,7 +47,7 @@ export async function signInWithOauth({
     email: profile.email,
     image: profile.picture,
     provider: account.provider,
-    isConfirmed: true,
+    confirmed: true,
     locale: locale,
   });
 
@@ -128,7 +128,7 @@ export async function signInWithCredentials({
     throw new Error("Invalid email or password");
   }
 
-  if (!user.isConfirmed) {
+  if (!user.confirmed) {
     throw new Error("Account not confirmed");
   }
 
