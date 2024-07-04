@@ -6,6 +6,7 @@ import {
   getUserByEmail,
   signInWithCredentials,
 } from "./actions/auth.actions";
+import { getSession } from "next-auth/react";
 
 export const nextauthOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -84,7 +85,7 @@ export const nextauthOptions: NextAuthOptions = {
       };
     },
     async redirect({ url, baseUrl }) {
-      const session = await getServerSession(nextauthOptions);
+      const session = await getServerSession();
       if (session?.user?.role === "Admin") {
         return baseUrl + "/admin";
       }
