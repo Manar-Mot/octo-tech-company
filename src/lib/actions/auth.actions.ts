@@ -31,13 +31,17 @@ export async function signInWithOauth({
 
   if (user) return true;
 
+  const splitName = profile.name?.split(" ") || [];
+  const firstName = splitName[0];
+  const lastName = splitName.slice(1).join(" ");
+
   const newUser = new User({
-    name: profile.name,
+    firstName: firstName,
+    lastName: lastName,
     email: profile.email,
     image: profile.picture,
     provider: account.provider,
   });
-
   // console.log(newUser)
   await newUser.save();
 
@@ -99,11 +103,12 @@ interface SignInWithCredentialsParams {
   password: string;
 }
 
+
 export async function signInWithCredentials({
   email,
   password,
 }: SignInWithCredentialsParams) {
-  connectDB();
+  await connectDB();
 
   const user = await User.findOne({ email });
 
@@ -111,10 +116,14 @@ export async function signInWithCredentials({
     throw new Error("Invalid email or password!");
   }
 
-  const passwordIsValid = bcrypt.compare(password, user.password);
+  const passwordIsValid = await bcrypt.compare(password, user.password);
 
   if (!passwordIsValid) {
     throw new Error("Invalid email or password");
+  }
+
+  if (!user.isConfirmed) {
+    throw new Error("Account not confirmed");
   }
 
   return { ...user.toObject(), _id: user._id.toString() };
