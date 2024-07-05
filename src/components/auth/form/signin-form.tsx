@@ -11,8 +11,9 @@ import Image from "next/image";
 import { GoogleIcon } from "@/public/assets";
 import { useTranslations } from "next-intl";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useRouter } from "next/router";
+
 import { getUserSession } from "@/src/lib/actions/auth.actions";
+import { useRouter } from "@/src/navigation";
 
 interface SignInFormProps {
   callbackUrl: string;
