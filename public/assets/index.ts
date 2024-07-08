@@ -39,9 +39,11 @@ import credIcon from "./icons/cred.svg";
 import growthLogo from "./logos/logo-growth.svg";
 import applyPartnership from "./images/apply-partnership.svg";
 import applyRes from "./images/apply-res.svg";
-import octoPartnerRes from "./images/octoPartnerRes.svg"
+import octoPartnerRes from "./images/octoPartnerRes.svg";
+import loadingImage from "./logos/loadingImage.svg";
 export {
   techIcon,
+  loadingImage,
   applyPartnership,
   growthIcon,
   trainingIcon,
