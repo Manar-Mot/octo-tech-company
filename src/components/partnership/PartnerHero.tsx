@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { partnerHero, partnerHeroRes } from "@/public/assets";
+import { partnerHero } from "@/public/assets";
 import SectionContainer from "../sharedComponent/SectionContainer";
 import ButtonComp from "../sharedComponent/ButtonComp";
 import { useTranslations } from "next-intl";
@@ -47,8 +47,7 @@ const PartnerHero = () => {
         </div>
       </div>
       <div>
-        <Image src={partnerHero} alt="partner hero " className="w-full h-auto hidden md:block" />
-        <Image src={partnerHeroRes} alt="partner hero  " className="block w-full h-auto md:hidden" />
+        <Image src={partnerHero} alt="partner hero " />
       </div>
     </SectionContainer>
   );
