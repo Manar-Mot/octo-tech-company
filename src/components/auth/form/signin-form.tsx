@@ -22,6 +22,7 @@ interface SignInFormProps {
 const SignInForm = ({ callbackUrl }: SignInFormProps) => {
   const t = useTranslations();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isGoogleSubmitting, setIsGoogleSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
@@ -59,9 +60,11 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
   async function onGoogleSignIn() {
     setIsSubmitting(true);
     const result = await signIn("google", { callbackUrl });
+    console.log(result)
 
     if (!result?.error) {
       const session = await getUserSession();
+      console.log(session)
       const role = session?.user?.role;
       if (role === "Admin") {
         router.push("/admin");

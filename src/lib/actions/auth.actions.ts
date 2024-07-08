@@ -27,16 +27,13 @@ export async function signInWithOauth({
 }: SignInWithOauthParams) {
   await connectDB();
   const locale = await getLocale();
-
   const user = await User.findOne({ email: profile.email });
-
   if (user) {
     if (!user.confirmed) {
       throw new Error("Account not confirmed");
     }
     return true;
   }
-
   const splitName = profile.name?.split(" ") || [];
   const firstName = splitName[0];
   const lastName = splitName.slice(1).join(" ");
