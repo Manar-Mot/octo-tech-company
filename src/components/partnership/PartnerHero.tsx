@@ -21,7 +21,7 @@ const PartnerHero = () => {
   };
 
   return (
-    <SectionContainer custom=" md:!py-28  gap-20 flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-b backdrop-blur-3xl from-[rgba(221,224,248,0.4)] to-[rgba(138,150,238,0.4)]">
+    <SectionContainer custom=" pb-20 md:!py-28  gap-20 flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-b backdrop-blur-3xl from-[rgba(221,224,248,0.4)] to-[rgba(138,150,238,0.4)]">
       <div className="flex flex-col items-center md:items-start">
         <div className="ltr:md:max-w-[420px] rtl:md:max-w-[480px] text-center md:text-start text-[24px] md:text-[28px] lg:text-[36px] text-title font-bold">
           {splitTitle.map((word, index) => (

@@ -47,8 +47,8 @@ const PartnershipFeatures = () => {
               نقدم أحدث التقنيات لضمان التفوق التنافسي لشركائنا
             </p>
           </div>
-          <div className="bg-white rounded-md p-6 shadow-md  w-[430px] h-[150px] md:h-[170px] lg:h-[150px]">
-            <div className="flex items-center gap-2 ">
+          <div className="bg-white rounded-md p-6 shadow-md w-full md:w-[430px] h-[150px] md:h-[170px] lg:h-[150px]">
+          <div className="flex items-center gap-2 ">
               <Image
                 src={growthIcon}
                 alt="Advanced technologies features icon"
@@ -67,7 +67,7 @@ const PartnershipFeatures = () => {
         </div>
         <div className=" w-full flex flex-col md:flex-row gap-10  items-center justify-between mb-4  ">
 
-          <div className="bg-white rounded-md p-6 shadow-md  w-[430px] h-[150px] md:h-[170px] lg:h-[150px]">
+        <div className="bg-white rounded-md p-6 shadow-md w-full md:w-[430px] h-[150px] md:h-[170px] lg:h-[150px]">
             <div className="flex items-center gap-2 ">
               <Image src={credIcon} alt="Advanced technologies features icon" />
               <h4 className=" text=[18px] md:text-[20px] text-title lg:text-[22px] font-bold">
@@ -79,8 +79,8 @@ const PartnershipFeatures = () => {
               ملموسة
             </p>
           </div>
-          <div className="bg-white rounded-md p-6 shadow-md  w-[430px] h-[150px] md:h-[170px] lg:h-[150px]">
-            <div className="flex items-center gap-2 ">
+          <div className="bg-white rounded-md p-6 shadow-md w-full md:w-[430px] h-[150px] md:h-[170px] lg:h-[150px]">
+          <div className="flex items-center gap-2 ">
               <Image
                 src={trainingIcon}
                 alt="Advanced technologies features icon"
