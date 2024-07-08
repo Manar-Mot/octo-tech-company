@@ -16,7 +16,7 @@ export default function LoadingComp() {
   }, []);
 
   return (
-    <div className="w-screen h-screen absolute top-0 left-0 bg-black grid place-items-center z-[1001]">
+    <div className="w-screen h-screen absolute top-0 left-0 bg-white grid place-items-center z-[1001]">
       <Image 
         src={loadingImage} 
         alt="Loading" 
