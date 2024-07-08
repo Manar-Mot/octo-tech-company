@@ -3,7 +3,7 @@
 import React from "react";
 interface ButtonCompProps {
   content: string;
-  isPrimary: boolean;
+  isPrimary?: boolean;
   path?: string;
   isSubmit?: boolean;
   event:any

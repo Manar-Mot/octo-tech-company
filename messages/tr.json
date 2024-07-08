@@ -89,8 +89,9 @@
     "partnerships": [
       "Al-Zaytoonah Uluslararası Üniversitesi",
       "Orta Doğu Şirketi",
-      "Accept Eğitim Şirketi",
-      "Suriye Öğrenciler Birliği"
+      "Accept Education Şirketi",
+      "Suriye Öğrenciler Birliği",
+      "Growth Advice Şirketi"
     ],
     "link": "Daha Fazla Detay"
   },
@@ -200,6 +201,13 @@
   },
   "verifyEmailSubject": "E-posta Doğrulama",
   "welcomeMessage": "Sitemize hoş geldiniz",
+  "partnershipSection": {
+    "partnerHero": {
+      "title": "İşinizi Yeni Yüksekliklere Taşıyın",
+      "description": "Ortaklık programımıza katılın ve ileri teknolojilerden, uzman destekten ve karşılıklı büyüme fırsatlarından yararlanın. Birlikte başarıya ulaşalım.",
+      "buttonText": "Şimdi Ortak Olun"
+    }
+  },
   "NotFoundPage": {
     "title": "Bulunamadı",
     "description": "Sayfa bulunamadı"

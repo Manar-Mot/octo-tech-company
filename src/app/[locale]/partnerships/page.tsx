@@ -1,8 +1,9 @@
+import Partnership from '@/src/components/partnership/Partnership'
 import React from 'react'
 
 const Partnerships = () => {
   return (
-    <div>Partnerships</div>
+    <div><Partnership/></div>
   )
 }
 

@@ -91,7 +91,8 @@
       "Al-Zaytoonah International University",
       "Middle East Company",
       "Accept Education Company",
-      "Syrian Students Union"
+      "Syrian Students Union",
+      "Growth Advice Company"
     ],
     "link": "More Details"
   },
@@ -152,7 +153,7 @@
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm your password",
- "placeholderFirstName": "Your First Name",
+    "placeholderFirstName": "Your First Name",
     "placeholderLastName": "Your Last Name",
     "placeholderEmail": "mail@example.com",
     "placeholderPassword": "your password",
@@ -190,15 +191,21 @@
     "name_required": "Name is required",
     "email_invalid": "Invalid email address",
     "message_required": "Message is required"
-
   },
-  "requestMessages":{
+  "requestMessages": {
     "MethodNotAllowed": "Method not allowed",
     "InvalidConfirmationCode": "Invalid confirmation code",
     "AccountConfirmedSuccessfully": "Account confirmed successfully",
     "UserAlreadyExists": "User already exists",
     "UserRegisteredCheckEmail": "User registered. Please check your email to verify your account.",
     "InternalServerError": "Internal Server Error"
+  },
+  "partnershipSection": {
+    "partnerHero": {
+      "title": "Take Your Business to New Heights",
+      "description": "Join our partnership program and benefit from advanced technologies, specialized support, and mutual growth opportunities. Let's achieve success together.",
+      "buttonText": "Become a Partner Now"
+    }
   },
   "verifyEmailSubject": "Email Verification",
   "welcomeMessage": "Welcome to our site",

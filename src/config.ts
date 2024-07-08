@@ -51,6 +51,11 @@ export const pathnames: Pathnames<typeof locales> = {
     ar: "/partnerships",
     tr: "/ortakliklar",
   },
+  "/partnerships/apply": {
+    en: "/partnerships/apply",
+    ar: "/partnerships/apply",
+    tr: "/ortakliklar/basvuru",
+  },
   "/admin": {
     en: "/admin",
     ar: "/admin",

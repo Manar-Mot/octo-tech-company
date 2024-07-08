@@ -30,7 +30,21 @@ import GoogleIcon from "./icons/google-icon.svg";
 import confirmImage from "./images/confirmImage.svg";
 import authImage from "./images/authImage.svg";
 import authRes from "./images/authRes.svg";
+import partnerHero from "./images/partnerHero.svg";
+import octoPartner from "./images/octoPartner.svg";
+import techIcon from "./icons/tech.svg";
+import growthIcon from "./icons/growth.svg";
+import trainingIcon from "./icons/training.svg";
+import credIcon from "./icons/cred.svg";
+import growthLogo from "./logos/logo-growth.svg";
+import applyPartnership from "./images/apply-partnership.svg";
+import applyRes from "./images/apply-res.svg";
 export {
+  techIcon,
+  applyPartnership,
+  growthIcon,
+  trainingIcon,
+  credIcon,
   authImage,
   AppLogo,
   AppLogoWhite,
@@ -56,6 +70,7 @@ export {
   middleLogo,
   zaitunLogo,
   acceptLogo,
+  growthLogo,
   sarLogo,
   article1,
   article2,
@@ -63,4 +78,7 @@ export {
   GoogleIcon,
   confirmImage,
   authRes,
+  partnerHero,
+  octoPartner,
+  applyRes,
 };

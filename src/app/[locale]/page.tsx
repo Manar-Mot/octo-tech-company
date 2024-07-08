@@ -6,17 +6,17 @@ import React from "react";
 import Template from "../template";
 import PartnershipsSection from "@/src/components/homepage/partnershipsSection/PartnershipsSection";
 import RecentArticles from "@/src/components/homepage/recentArticles/RecentArticles";
+import { getLocale } from "next-intl/server";
 
-const Home = () => {
- 
+const Home = async () => {
+  const locale = await getLocale();
   return (
-    
     <Template>
       <Hero />
       <FeaturesSection />
       <ServicesSection />
       <Testimonials />
-      <PartnershipsSection />
+      <PartnershipsSection locale={locale} />
       <RecentArticles />
     </Template>
   );
