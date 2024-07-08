@@ -5,12 +5,10 @@ import TitleSection from "../sharedComponent/TitleSection";
 import Image from "next/image";
 import { bgSectionWhite } from "@/public/assets";
 import PartnerSlider from "./Partners";
-import { getLocale } from "next-intl/server";
-const OurParteners =  ({locale}:{locale:string}) => {
-
-  const t = useTranslations("partnershipSection.partnerHero");
-  const title = " شركاؤنا المميزون ";
-  const wordsToColor = ["المميزون"];
+const OurParteners = ({ locale }: { locale: string }) => {
+  const t = useTranslations("partnershipSection.uniquePartnerSection");
+  const title = t("title");
+  const wordsToColor = ["المميزون","Özel","Featured"];
   const splitTitle = title.split(
     new RegExp(`(${wordsToColor.join("|")})`, "g")
   );
@@ -24,8 +22,7 @@ const OurParteners =  ({locale}:{locale:string}) => {
       />
       <TitleSection title={title} wordsToColor={wordsToColor} />
       <p className="mt-8 md:max-w-[80%] lg:text-[20px] md:text-[18px] text-[16px] text-pargraph text-center mx-auto ">
-        نحن نفتخر بالتعاون مع مجموعة متميزة من الشركاء الذين يساهمون في تقديم
-        أفضل الحلول والخدمات
+        {t("description")}
       </p>
       <PartnerSlider locale={locale} />
     </SectionContainer>

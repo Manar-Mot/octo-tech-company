@@ -206,6 +206,37 @@
       "title": "İşinizi Yeni Yüksekliklere Taşıyın",
       "description": "Ortaklık programımıza katılın ve ileri teknolojilerden, uzman destekten ve karşılıklı büyüme fırsatlarından yararlanın. Birlikte başarıya ulaşalım.",
       "buttonText": "Şimdi Ortak Olun"
+    },
+    "partnershipFeatures": {
+      "title": "Neden OCTO TECH Ortaklık Programına Katılmalısınız?",
+      "description": "OCTOTECH olarak güçlü ortaklıkların sürdürülebilir başarı ve sürekli yenilik anahtarı olduğuna inanıyoruz. Bu nedenle, ortaklarımızla verimli iş birliğini artırmayı, ortak hedeflere ulaşmayı ve müşterilerimize katma değer sunmayı amaçlayan bir ortaklık programı tasarladık.",
+      "features": {
+        "tech": {
+          "title": "Gelişmiş Teknolojiler",
+          "description": "Ortaklarımızın rekabet avantajını sağlamak için en son teknolojileri sunuyoruz"
+        },
+        "growth": {
+          "title": "Ortak Büyüme",
+          "description": "Ortak hedeflere ulaşmak ve sürdürülebilir büyümeyi sağlamak için birlikte çalışıyoruz"
+        },
+        "credibility": {
+          "title": "Güvenilirliği Artırma",
+          "description": "Net stratejik detaylar ve somut faydalar sunarak yüksek güvenilirlik sağlıyoruz"
+        },
+        "training": {
+          "title": "Eğitim ve Gelişim ",
+          "description": "Ekibinizi geliştirmek için ileri düzey eğitimlerimizden faydalanın"
+        }
+      }
+    },
+    "uniquePartnerSection": {
+      "title": " Özel Ortaklarımız ",
+      "description": "En iyi çözümleri ve hizmetleri sunmamıza katkıda bulunan seçkin ortaklarımızla gurur duyuyoruz"
+    },
+    "ApplyPartnerShipSection": {
+      "title": "Bizimle Ortaklık Yapmaya Hazır mısınız?",
+      "description": "Özel ortaklarımızın ağına katılmak ve benzersiz işbirliği fırsatlarından yararlanmak istiyorsanız, ortaklık başvurunuzu yapmanızı öneririz",
+      "button": "Ortaklık Başvurusu Yapın"
     }
   },
   "NotFoundPage": {

@@ -205,6 +205,37 @@
       "title": "Take Your Business to New Heights",
       "description": "Join our partnership program and benefit from advanced technologies, specialized support, and mutual growth opportunities. Let's achieve success together.",
       "buttonText": "Become a Partner Now"
+    },
+    "partnershipFeatures": {
+      "title": "Why Join the OCTO TECH Partnership Program?",
+      "description": "At OCTOTECH, we believe that strong partnerships are the key to achieving sustainable success and continuous innovation. That's why we've designed a partnership program aimed at enhancing fruitful collaboration between us and our partners, to achieve common goals and deliver added value to our clients.",
+      "features": {
+        "tech": {
+          "title": "Advanced Technologies",
+          "description": "We offer the latest technologies to ensure a competitive edge for our partners"
+        },
+        "growth": {
+          "title": "Shared Growth",
+          "description": "We work together to achieve common goals and sustainable growth for both parties"
+        },
+        "credibility": {
+          "title": "Enhanced Credibility",
+          "description": "We ensure high credibility by providing clear strategic details and tangible benefits"
+        },
+        "training": {
+          "title": "Training and Development ",
+          "description": "Benefit from our training programs to enhance your team's skills and efficiency"
+        }
+      }
+    },
+    "uniquePartnerSection": {
+      "title": " Our Featured Partners ",
+      "description": "We take pride in collaborating with a distinguished group of partners who contribute to delivering the best solutions and services"
+    },
+    "ApplyPartnerShipSection": {
+      "title": "Are You Ready to Partner with Us?",
+      "description": "If you wish to join our network of distinguished partners and benefit from unique collaboration opportunities, we invite you to submit a partnership application",
+      "button": "Submit Partnership Application"
     }
   },
   "verifyEmailSubject": "Email Verification",
