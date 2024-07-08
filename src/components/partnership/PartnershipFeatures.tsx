@@ -8,7 +8,7 @@ import {
   credIcon,
   growthIcon,
   octoPartner,
-  partnerHeroRes,
+  octoPartnerRes,
   techIcon,
   trainingIcon,
 } from "@/public/assets";
@@ -65,7 +65,7 @@ const PartnershipFeatures = () => {
         </div>
         <div className="my-4 lg:my-0">
           <Image src={octoPartner} alt="partnerships features section image " className="hidden w-full h-auto md:block" />
-        <Image src={partnerHeroRes} alt="partner hero  " className="block w-full h-auto md:hidden" />
+        <Image src={octoPartnerRes} alt="partner hero  " className="block w-full h-auto md:hidden" />
           
         </div>
         <div className=" w-full flex flex-col md:flex-row gap-10  items-center justify-between mb-4  ">
