@@ -15,7 +15,7 @@ import {
 
 const PartnershipFeatures = () => {
   const t = useTranslations("partnershipSection.partnerHero");
-  const title = "لماذا تنضم إلى برنامج الشراكة مع OCTOTECH ؟ ";
+  const title = "لماذا تنضم إلى برنامج الشراكة مع OCTO TECH ؟ ";
   const wordsToColor = ["OCTOTECH", "؟"];
   const splitTitle = title.split(
     new RegExp(`(${wordsToColor.join("|")})`, "g")
