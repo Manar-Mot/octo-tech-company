@@ -5,9 +5,9 @@
     "language-switch-title": "Dil"
   },
   "navBar": {
-    "discover-services-btn": "Hizmetlerimizi Keşfedin",
+    "signIn-btn": "Giriş Yap",
     "home-link": "Ana Sayfa",
-    "certificates-link": "Sertifikalar",
+    "services-link": "Hizmetler",
     "partnerships-link": "Ortaklıklar",
     "blog-link": "Blog",
     "about-us-link": "Hakkımızda",
@@ -146,6 +146,7 @@
     "signUp": "Kaydol"
   },
   "signUpPage": {
+    "welcome": "Bizimle hoş geldiniz",
     "firstName": "Ad",
     "lastName": "Soyad",
     "email": "E-posta",
@@ -163,14 +164,17 @@
     "signIn": "Giriş Yap",
     "signUpSuccess": "Başarıyla kayıt olundu."
   },
-  "verification": {
-    "title": "Doğrulama Talebi",
-    "loading": "Yükleniyor...",
-    "message": "Yeni bir doğrulama kodu talep edebilirsiniz {minutes} dakika içinde."
+  "verifyPage": {
+    "ConfirmAccountTitle": "Hesabı Onayla",
+    "ResendVerificationButton": "Doğrulama Bağlantısını Yeniden Gönder",
+    "InvalidInput": "Lütfen sadece geçerli rakamları girin.",
+    "VerificationTitle": "Hesap Onayı",
+    "VerificationInstructions": "E-postanızı açın ve hesabınızın doğrulanmasını tamamlamak için doğrulama bağlantısına tıklayın veya alanlara 6 haneli doğrulama kodunu girin",
+    "VerifyButton": "Doğrula",
+    "ResendVerificationPrompt": "E-postanıza herhangi bir mesaj gelmediyse veya bağlantı süresi dolduysa buradan doğrulama isteği yeniden gönderebilirsiniz",
+    "ResendVerificationLink": "Doğrulama Bağlantısını Tekrar Gönder"
   },
-  "verifying": {
-    "title": "Doğrulanıyor..."
-  },
+
   "contact": {
     "title": "Bize Ulaşın",
     "name": "İsim",
@@ -190,17 +194,6 @@
     "email_invalid": "Geçersiz e-posta adresi",
     "message_required": "Mesaj gerekli"
   },
-
-  "requestMessages": {
-    "MethodNotAllowed": "Yönteme izin verilmiyor",
-    "InvalidConfirmationCode": "Geçersiz onay kodu",
-    "AccountConfirmedSuccessfully": "Hesap başarıyla onaylandı",
-    "UserAlreadyExists": "Kullanıcı zaten mevcut",
-    "UserRegisteredCheckEmail": "Kullanıcı kaydedildi. Lütfen hesabınızı doğrulamak için e-postanızı kontrol edin.",
-    "InternalServerError": "Sunucu Hatası"
-  },
-  "verifyEmailSubject": "E-posta Doğrulama",
-  "welcomeMessage": "Sitemize hoş geldiniz",
   "partnershipSection": {
     "partnerHero": {
       "title": "İşinizi Yeni Yüksekliklere Taşıyın",
@@ -242,5 +235,24 @@
   "NotFoundPage": {
     "title": "Bulunamadı",
     "description": "Sayfa bulunamadı"
+  },
+  "messages": {
+    "UserAlreadyExists": "Kullanıcı zaten mevcut. Lütfen giriş yapmayı deneyin.",
+    "UserRegisteredCheckEmail": "Kayıt başarılı! Lütfen doğrulama talimatları için e-postanızı kontrol edin.",
+    "InternalServerError": "Bir sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin.",
+    "SomethingWentWrong": "Bir şeyler yanlış gitti",
+    "ResendVerificationSuccess": "Doğrulama bağlantısı başarıyla yeniden gönderildi",
+    "ResendVerificationError": "Doğrulama bağlantısı yeniden gönderilirken hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "VerifyCodeSuccess": "Doğrulama başarılı",
+    "VerifyCodeError": "Kod doğrulanırken hata oluştu. Lütfen girilen kodu kontrol edin ve tekrar deneyin.",
+    "AccountVerifiedSuccess": "Hesap başarıyla doğrulandı",
+    "InvalidTokenError": "Geçersiz token",
+    "VerifyTokenError": "Token doğrulama hatası",
+    "UserNotFound": "Kullanıcı bulunamadı",
+    "InvalidOTP": "Geçersiz OTP",
+    "OTPExpired": "OTP süresi doldu. Lütfen yeni bir tane isteyin",
+    "TokenExpired": "Bağlantı süresi doldu. Lütfen yeni bir doğrulama bağlantısı isteyin.",
+    "TokenVerificationFailed": "Bağlantı doğrulama işlemi başarısız oldu",
+    "UserAlreadyConfirmed": "Kullanıcı zaten onaylanmış  "
   }
 }

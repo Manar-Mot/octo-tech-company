@@ -86,25 +86,60 @@ const FooterContent = () => {
             <span className="block h-[1.2px] bg-accent absolute -bottom-1 left-0 right-0"></span>
           </h5>
           <div className="flex text-[30px] items-center gap-2 text-white">
-            <Link href="/">
+            <Link
+              href="https://www.facebook.com/octotechco?mibextid=ZbWKwL"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaFacebook className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://t.me/octotechco"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaTelegram className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://www.instagram.com/octopu.tech"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaInstagram className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://www.linkedin.com/company/octotechco"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaLinkedin className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://www.youtube.com/@octotechco"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaYoutube className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://x.com/octotechco"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaTwitter className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
-            <Link href="/">
+            <Link
+              href="https://wa.me/306998548153"
+              passHref
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaWhatsapp className=" transition-all ease-linear duration-75 hover:text-[#ccd1f8] cursor-pointer" />
             </Link>
           </div>

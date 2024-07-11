@@ -5,9 +5,9 @@
     "language-switch-title": "Language"
   },
   "navBar": {
-    "discover-services-btn": "Discover Our Services",
+    "signIn-btn": "Sign In",
     "home-link": "Home",
-    "certificates-link": "Certificates",
+    "services-link": "Services",
     "partnerships-link": "Partnerships",
     "blog-link": "Blog",
     "about-us-link": "About Us",
@@ -148,6 +148,7 @@
     "signUp": "Sign Up"
   },
   "signUpPage": {
+    "welcome": "Welcome with us",
     "firstName": "First Name",
     "lastName": "Last Name",
     "email": "Email",
@@ -165,13 +166,15 @@
     "signIn": "Sign In",
     "signUpSuccess": "Sign up successfully."
   },
-  "verification": {
-    "title": "Request Verification",
-    "loading": "Loading...",
-    "message": "You can request a new verification token in {minutes} minutes."
-  },
-  "verifying": {
-    "title": "Verifying..."
+  "verifyPage": {
+    "ConfirmAccountTitle": "Confirm Account",
+    "ResendVerificationButton": "Resend Verification Link",
+    "InvalidInput": "Please enter valid digits only.",
+    "VerificationTitle": "Account Verification",
+    "VerificationInstructions": "Please open your email and click on the verification link to complete your account verification or enter the 6-digit verification code in the fields",
+    "VerifyButton": "Verify",
+    "ResendVerificationPrompt": "If you haven't received any message on your email or the link has expired, you can resend a verification request from here",
+    "ResendVerificationLink": "Resend Verification Link"
   },
   "contact": {
     "title": "Contact Us",
@@ -191,14 +194,6 @@
     "name_required": "Name is required",
     "email_invalid": "Invalid email address",
     "message_required": "Message is required"
-  },
-  "requestMessages": {
-    "MethodNotAllowed": "Method not allowed",
-    "InvalidConfirmationCode": "Invalid confirmation code",
-    "AccountConfirmedSuccessfully": "Account confirmed successfully",
-    "UserAlreadyExists": "User already exists",
-    "UserRegisteredCheckEmail": "User registered. Please check your email to verify your account.",
-    "InternalServerError": "Internal Server Error"
   },
   "partnershipSection": {
     "partnerHero": {
@@ -243,5 +238,24 @@
   "NotFoundPage": {
     "title": "Not Found",
     "description": "The page is not found"
+  },
+  "messages": {
+    "UserAlreadyExists": "User already exists. Please try logging in.",
+    "UserRegisteredCheckEmail": "Registration successful! Please check your email for verification instructions.",
+    "InternalServerError": "An internal server error occurred. Please try again later.",
+    "SomethingWentWrong": "Something went wrong",
+    "ResendVerificationSuccess": "Verification link resent successfully",
+    "ResendVerificationError": "Error resending verification link. Please try again later.",
+    "VerifyCodeSuccess": "Verification successful",
+    "VerifyCodeError": "Error verifying code. Please check the entered code and try again.",
+    "AccountVerifiedSuccess": "Account verified successfully",
+    "InvalidTokenError": "Invalid token",
+    "VerifyTokenError": "Error verifying token",
+    "UserNotFound": "User not found",
+    "InvalidOTP": "Invalid OTP",
+    "OTPExpired": "OTP expired. Please request a new one",
+     "TokenExpired": "Link expired. Please request a new verification link.",
+  "TokenVerificationFailed": "Verification through the link failed",
+    "UserAlreadyConfirmed":"User is already confirmed "
   }
 }

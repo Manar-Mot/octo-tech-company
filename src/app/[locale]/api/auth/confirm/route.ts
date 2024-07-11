@@ -5,7 +5,6 @@ import User from "@/src/lib/models/User";
 
 export async function POST(req: NextRequest) {
   const { token } = await req.json();
-  console.log(token);
   try {
     const decodedToken: any = jwt.verify(
       token as string,
@@ -14,24 +13,32 @@ export async function POST(req: NextRequest) {
 
     await connectDB();
 
-    const user = await User.findOneAndUpdate(
-      { _id: decodedToken.userId, email: decodedToken.email },
-      { $set: { confirmed: true } },
-      { new: true }
+    const user = await User.findOne(
+      { _id: decodedToken.userId, email: decodedToken.email }
     );
 
     if (!user) {
       return NextResponse.json(
-        { success: false, message: "User not found" },
+        { success: false, messageKey: "UserNotFound" },
         { status: 404 }
       );
     }
 
+    if (user.confirmed) {
+      return NextResponse.json(
+        { success: false, messageKey: "UserAlreadyConfirmed" },
+        { status: 400 }
+      );
+    }
+
+    user.confirmed = true;
+    await user.save();
+
     return NextResponse.json(
       {
         success: true,
-        message: "Account verified successfully. You can now sign in.",
-        user:user
+        messageKey: "AccountVerifiedSuccess",
+        user: user
       },
       { status: 200 }
     );
@@ -40,8 +47,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message:
-            "Verification token has expired. Please request a new verification link.",
+          messageKey: "TokenExpired",
         },
         { status: 400 }
       );
@@ -49,7 +55,7 @@ export async function POST(req: NextRequest) {
 
     console.error("Error verifying token:", error);
     return NextResponse.json(
-      { success: false, message: "Token verification failed" },
+      { success: false, messageKey: "TokenVerificationFailed" },
       { status: 500 }
     );
   }

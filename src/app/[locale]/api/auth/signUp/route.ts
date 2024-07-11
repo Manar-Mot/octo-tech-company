@@ -42,8 +42,6 @@ export async function POST(req: NextRequest) {
     const verificationUrl = `${process.env.NEXT_PUBLIC_URL}/${locale}/auth/request-verification?token=${verificationToken}`;
     await sendVerificationEmail(newUser.email, verificationUrl, locale, otp);
     await newUser.save();
-
-    // Remove sensitive data before sending user data in response
     const userResponse = {
       _id: newUser._id,
       firstName: newUser.firstName,

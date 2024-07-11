@@ -5,11 +5,11 @@ import ImageHero from "./ImageHero";
 import ButtonComp from "../../sharedComponent/ButtonComp";
 import { bgHero } from "@/public/assets";
 import Image from "next/image";
-import { useRouter } from "@/src/navigation";
+import { Link, useRouter } from "@/src/navigation";
 
 const Hero = () => {
   const t = useTranslations("hero");
-  const router =useRouter();
+  const router = useRouter();
   const title = t("heroTitle");
   const wordsToColor = ["تقني", "Teknolojik", "Technological"];
   const splitTitle = title.split(
@@ -39,17 +39,31 @@ const Hero = () => {
               <ButtonComp
                 content={t("contact-btn")}
                 isPrimary={true}
-                event={() => router.push("/")}
+                event={() => router.push("/contact-us")}
               />
-              <ButtonComp
-                content={t("consultation-btn")}
-                isPrimary={false}
-                event={() => router.push("/")}
-              />
+              <Link
+                href="https://wa.me/352681540864"
+                passHref
+                target="_blank"
+                rel="noopener noreferrer"
+                className={` text-[16px] lg:text-[18px]  py-[6px] px-3  rounded-md transition-all ease-linear duration-75 
+                         bg-primary  text-accent border border-accent  hover:bg-accent hover:text-white
+                `}
+              >
+                {t("consultation-btn")}
+                {/* <ButtonComp
+                  content={t("consultation-btn")}
+                  isPrimary={false}
+                /> */}
+              </Link>
             </div>
           </div>
 
-          <Image src={bgHero} alt="bg-hero" className="w-full h-auto object-cover  absolute lg:-top-56 md:-top-20 -top-14 left-0 -z-20 opacity-80 " />
+          <Image
+            src={bgHero}
+            alt="bg-hero"
+            className="w-full h-auto object-cover  absolute lg:-top-56 md:-top-20 -top-14 left-0 -z-20 opacity-80 "
+          />
         </div>
         {/* <div className="w-full bg-black h-60"> */}
         {/* </div> */}

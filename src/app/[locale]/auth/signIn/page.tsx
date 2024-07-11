@@ -13,8 +13,9 @@ const SignInPage = ({ searchParams: { callbackUrl } }: SignInPageProps) => {
   const t = useTranslations("SignIn");
   return (
     <SectionContainer custom="min-h-screen ">
-      <div className="relative w-full mx-auto rounded-md flex flex-col lg:flex-row items-center h-auto md:h-[750px] bg-black">
+      <div className="relative w-[80%] mx-auto rounded-md flex flex-col lg:flex-row items-center h-auto md:h-[520px] bg-black">
         <div className="relative w-full  lg:h-full flex-1">
+
           <Image
             src={authImage}
             alt="authImage"

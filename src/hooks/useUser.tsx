@@ -19,7 +19,8 @@ interface UserContextProps {
   error: boolean;
   signUp: (values: SignUpValues) => Promise<void>;
   verifyToken: (token: string) => Promise<void>;
-  isAccountConfirmed: boolean; // حالة التأكيد على الحساب
+  handleVerifyCode: (verificationCodes: string[]) => Promise<void>;
+  isAccountConfirmed: boolean;
   handleSetError: () => void;
   handleOffError: () => void;
 }
@@ -31,11 +32,11 @@ interface Props {
 export const UserContext = createContext<UserContextProps | null>(null);
 
 export const UserContextProvider = (props: Props) => {
-  const t = useTranslations("signUpPage");
+  const t = useTranslations("messages");
   const [user, setUser] = useState<IUser | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [isAccountConfirmed, setIsAccountConfirmed] = useState(false); // حالة التأكيد على الحساب
+  const [isAccountConfirmed, setIsAccountConfirmed] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -57,15 +58,16 @@ export const UserContextProvider = (props: Props) => {
         if (response.status === 200) {
           setUser(response.data.user);
           localStorage.setItem("userInfo", JSON.stringify(response.data.user));
-          toast.success(t("signUpSuccess"));
-          router.push(`/auth/request-verification`);
+          toast.success(t(response.data.messageKey));
+          router.push(`/auth/verify`);
         } else {
           setError(true);
-          toast.error(response.data.message || "Something went wrong");
+          toast.error(t(response.data.messageKey) || t("SomethingWentWrong"));
         }
-      } catch (error) {
+      } catch (error:any) {
         setError(true);
-        toast.error("Something went wrong");
+        toast.error(t(error.response.data.messageKey)||t("InternalServerError"));
+
       } finally {
         setLoading(false);
       }
@@ -76,27 +78,56 @@ export const UserContextProvider = (props: Props) => {
   const verifyToken = useCallback(
     async (token: string) => {
       if (!token) return;
+      setLoading(true);
       try {
         const res = await axios.post(`/api/auth/confirm`, { token });
+        console.log("========")
+        console.log(res)
         if (res.status === 200) {
           setUser(res.data.user);
           localStorage.setItem("userInfo", JSON.stringify(res.data.user));
-          setIsAccountConfirmed(true); // تعيين حالة التأكيد على الحساب إلى true
-          toast.success("Account verified successfully");
+          setIsAccountConfirmed(true);
+          toast.success(t(res.data.messageKey));
           router.push("/auth/signIn");
-        } else if (res.status === 400) {
+        } else if(res.status===400) {
+          console.log(res.data.messageKey)
           setError(true);
-          toast.error("Invalid token");
-        } else {
-          setError(true);
-          toast.error("Error verifying token");
+          toast.error(t(res.data.messageKey) || t("SomethingWentWrong"));
         }
-      } catch (error) {
+      } catch (error:any) {
+        console.log(error)
         setError(true);
-        toast.error("Error verifying token");
+        toast.error(t(error.response.data.messageKey)||t("InternalServerError"));
+      } finally {
+        setLoading(false);
       }
     },
     [router]
+  );
+  const handleVerifyCode = useCallback(
+    async (verificationCodes: string[]) => {
+      try {
+        const res = await axios.post(`/api/auth/verify-code`, {
+          email: user?.email,
+          otp: verificationCodes.join(""),
+        });
+
+        if (res.status === 200 && res.data.success) {
+          toast.success(t(res.data.messageKey));
+          router.push("/auth/signIn");
+        } else {
+          const errorMessage = res.data.messageKey
+            ? t(res.data.messageKey)
+            : t("VerifyCodeError");
+          toast.error(errorMessage);
+        }
+      } catch (error:any) {
+        console.error("Error verifying code:", error);
+        toast.error(t(error.response.data.messageKey)||t("VerifyCodeError"));
+
+      }
+    },
+    [router, user?.email, t]
   );
 
   const handleSetError = useCallback(() => {
@@ -113,14 +144,14 @@ export const UserContextProvider = (props: Props) => {
     error,
     signUp,
     verifyToken,
-    isAccountConfirmed, // تمرير حالة التأكيد على الحساب كجزء من قيمة السياق
+    handleVerifyCode,
+    isAccountConfirmed,
     handleSetError,
     handleOffError,
   };
 
   return <UserContext.Provider value={value} {...props} />;
 };
-
 export const useUser = () => {
   const context = useContext(UserContext);
   if (!context) {

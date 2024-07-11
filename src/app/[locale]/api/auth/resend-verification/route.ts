@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     await sendVerificationEmail(user.email, verificationUrl, locale, otp);
 
     return NextResponse.json(
-      { success: true, messageKey: "OTPResent" },
+      { success: true, messageKey: "ResendVerificationSuccess" },
       { status: 200 }
     );
   } catch (error) {

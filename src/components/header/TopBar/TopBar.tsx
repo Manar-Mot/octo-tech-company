@@ -1,22 +1,19 @@
 import { useTranslations } from "next-intl";
-import React, { use } from "react";
+import React from "react";
 import LocalSwitcher from "./LocalSwitcher";
-import { getLocale } from "next-intl/server";
-import AuthLinks from "./AuthLinks";
 import { usePathname } from "@/src/navigation";
 
 const TopBar = ({ locale }: { locale: string }) => {
-  const t = useTranslations("TopBar");
   const path = usePathname();
 
   return (
     <div
-      className={`w-full bg-title text-white px-4 lg:px-10  py-2 flex flex-row-reverse items-center gap-5 text-[12px] lg:text-[15px] ${
+      className={`w-full bg-title text-white px-4 lg:px-10  py-2 flex flex-row-reverse items-center gap-5 text-[14px] lg:text-[16px] ${
         path.includes("auth") ? "border-b border-slate-300" : ""
       }`}
     >
       <LocalSwitcher locale={locale} />
-      <AuthLinks LinkSignIn={t("signIn-btn")} LinkSignUp={t("signUp-btn")} />
+
     </div>
   );
 };

@@ -7,11 +7,8 @@ import * as z from "zod";
 import { signIn, getSession } from "next-auth/react";
 import Link from "next/link";
 import { userSignInValidation } from "@/src/lib/validation/auth-validation";
-import Image from "next/image";
-import { GoogleIcon } from "@/public/assets";
 import { useTranslations } from "next-intl";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
 import { getUserSession } from "@/src/lib/actions/auth.actions";
 import { useRouter } from "@/src/navigation";
 
@@ -54,24 +51,6 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
       }
     }
 
-    setIsSubmitting(false);
-  }
-
-  async function onGoogleSignIn() {
-    setIsSubmitting(true);
-    const result = await signIn("google", { callbackUrl });
-    console.log(result)
-
-    if (!result?.error) {
-      const session = await getUserSession();
-      console.log(session)
-      const role = session?.user?.role;
-      if (role === "Admin") {
-        router.push("/admin");
-      } else {
-        router.push(callbackUrl || "/");
-      }
-    }
     setIsSubmitting(false);
   }
 
@@ -126,29 +105,18 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
       >
         {isSubmitting ? t("SignIn.submitting") : t("SignIn.submitButton")}
       </button>
-      <div className="flex items-center justify-center my-4">
+      {/* <div className="flex items-center justify-center my-4">
         <div className="border-b border-gray-400 w-full"></div>
         <span className="px-2 text-gray-400">{t("SignIn.or")}</span>
         <div className="border-b border-gray-400 w-full"></div>
-      </div>
-      <button
-        className="w-full bg-transparent transition-all ease-linear duration-75 hover:bg-slate-100 text-title py-2 px-4 rounded flex justify-center items-center gap-2 border border-slate-300"
-        type="button"
-        onClick={onGoogleSignIn}
-      >
-        <Image
-          src={GoogleIcon}
-          alt="google-icon"
-          className="w-4 h-auto object-cover "
-        />
-        {t("SignIn.signInWithGoogle")}
-      </button>
-      <p className="text-center text-sm text-gray-600 mt-2">
+      </div> */}
+ 
+      {/* <p className="text-center text-sm text-gray-600 mt-2">
         {t("SignIn.noAccount")} &nbsp;
         <Link className="text-blue-600 hover:underline" href="/auth/signUp">
           {t("SignIn.signUp")}
         </Link>
-      </p>
+      </p> */}
     </form>
   );
 };

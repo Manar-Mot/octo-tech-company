@@ -5,9 +5,9 @@
     "language-switch-title": "اللغة"
   },
   "navBar": {
-    "discover-services-btn": "اكتشف خدماتنا",
+    "signIn-btn": "تسجيل الدخول",
     "home-link": "الرئيسية",
-    "certificates-link": "الشهادات",
+    "services-link": "الخدمات",
     "partnerships-link": "الشراكات",
     "blog-link": "المدونة",
     "about-us-link": "من نحن",
@@ -145,6 +145,7 @@
     "signUp": "سجل"
   },
   "signUpPage": {
+    "welcome": "مرحباً بكم معنا",
     "firstName": "الأسم الأول ",
     "lastName": " الكنية",
     "email": "البريد الإلكتروني",
@@ -162,16 +163,17 @@
     "signIn": "تسجيل الدخول",
     "signUpSuccess": "تم التسجيل بنجاح."
   },
-  "verification": {
-    "title": "طلب التحقق",
-    "loading": "جار التحميل...",
-    "message": "يمكنك طلب رمز تحقق جديد في {minutes} دقائق."
+  "verifyPage": {
+    "ConfirmAccountTitle": "تأكيد الحساب",
+    "ResendVerificationButton": "إعادة إرسال رابط التحقق",
+    "InvalidInput": "يرجى إدخال أرقام صحيحة فقط.",
+    "VerificationTitle": "تأكيد الحساب",
+    "VerificationInstructions": "الرجاء فتح بريدك الإلكتروني والضغط على رابط التأكيد لإكمال عملية التحقق من حسابك أو إدخال رمز التحقق المكون من 6 أرقام في الحقول",
+    "VerifyButton": "تحقق",
+    "ResendVerificationPrompt": "لم تتلق أيه رسالة على بريدك الإلكتروني أو صلاحية الرابط منتهية يمكنك إعادة إرسال طلب تحقق من هنا",
+    "ResendVerificationLink": "إعادة إرسال طلب التحقق"
   },
-  "verifying": {
-    "title": "جار التحقق..."
-  },
-  "verifyEmailSubject": "تأكيد البريد الإلكتروني",
-  "welcomeMessage": "مرحبًا بكم في موقعنا",
+
   "contact": {
     "contactInfoTitle": "دعنا نعمل معًا لتحقيق أهدافك ",
     "name": "الاسم",
@@ -189,14 +191,6 @@
     "map": "موقعنا هنا.",
     "question": "هل لديك أية أسئلة؟",
     "description": "نحن هنا لمساعدتك في جميع استفساراتك التقنية وتقديم الدعم اللازم. لا تتردد في التواصل معنا لأي استفسارات أو مشكلات قد تواجهها. نحن هنا لدعمك ومساعدتك في تحقيق أهدافك التقنية بأفضل طريقة ممكنة."
-  },
-  "requestMessages": {
-    "MethodNotAllowed": "الطريقة غير مسموح بها",
-    "InvalidConfirmationCode": "رمز التأكيد غير صالح",
-    "AccountConfirmedSuccessfully": "تم تأكيد الحساب بنجاح",
-    "UserAlreadyExists": "المستخدم موجود بالفعل",
-    "UserRegisteredCheckEmail": "تم تسجيل المستخدم. يرجى التحقق من بريدك الإلكتروني لتأكيد حسابك.",
-    "InternalServerError": "خطأ في الخادم الداخلي"
   },
   "partnershipSection": {
     "partnerHero": {
@@ -239,5 +233,24 @@
   "NotFoundPage": {
     "title": "غير موجود",
     "description": "الصفحة غير موجودة"
+  },
+  "messages": {
+    "UserAlreadyExists": "المستخدم موجود بالفعل. يرجى محاولة تسجيل الدخول.",
+    "UserRegisteredCheckEmail": "تم التسجيل بنجاح! يرجى التحقق من بريدك الإلكتروني للحصول على تعليمات التحقق.",
+    "InternalServerError": "حدث خطأ داخلي في الخادم. يرجى المحاولة مرة أخرى لاحقًا.",
+    "SomethingWentWrong": "حدث خطأ ما",
+    "ResendVerificationSuccess": "تم إعادة إرسال رابط التحقق بنجاح",
+    "ResendVerificationError": "حدث خطأ أثناء إعادة إرسال رابط التحقق. الرجاء المحاولة مرة أخرى لاحقًا.",
+    "VerifyCodeSuccess": "تم التحقق بنجاح",
+    "VerifyCodeError": "حدث خطأ أثناء التحقق من الرمز. الرجاء التحقق من صحة الرمز المدخل والمحاولة مرة أخرى.",
+    "AccountVerifiedSuccess": "تم تأكيد الحساب بنجاح",
+    "InvalidTokenError": "رمز غير صالح",
+    "VerifyTokenError": "خطأ أثناء التحقق من الرمز",
+    "UserNotFound": "المستخدم غير موجود",
+    "InvalidOTP": "رمز التحقق غير صحيح",
+    "OTPExpired": "انتهت صلاحية رمز التحقق. الرجاء طلب رمز جديد",
+    "TokenExpired": "انتهت صلاحية الرابط . الرجاء طلب رابط تحقق جديد.",
+    "TokenVerificationFailed": "فشلت عملية التحقق عبر الرابط",
+    "UserAlreadyConfirmed": "المستخدم مؤكد بالفعل"
   }
 }

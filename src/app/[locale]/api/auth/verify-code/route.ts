@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     await user.save();
 
     return NextResponse.json(
-      { success: true, messageKey: "UserVerified" },
+      { success: true, messageKey: "VerifyCodeSuccess" },
       { status: 200 }
     );
   } catch (error) {

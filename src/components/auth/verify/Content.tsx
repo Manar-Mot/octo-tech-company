@@ -1,22 +1,26 @@
+
+import { useTranslations } from "next-intl";
 import React, { useRef, useEffect, useState } from "react";
+
 
 interface ContentProps {
   showResendLink: boolean;
-  handleResendVerification: () => void;
+
   handleChangeVerificationCode: (index: number, value: string) => void;
   verificationCodes: string[];
-  handleVerifyCode: () => void;
+  handleVerifyCode: (verificationCodes: string[]) => void;
   handleOpenModal: () => void;
 }
 
 const Content: React.FC<ContentProps> = ({
   handleChangeVerificationCode,
-  handleResendVerification,
   showResendLink,
   handleOpenModal,
   verificationCodes,
   handleVerifyCode,
 }) => {
+  const  t  = useTranslations("verifyPage"); 
+
   const [error, setError] = useState<string | null>(null);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -25,13 +29,13 @@ const Content: React.FC<ContentProps> = ({
   };
 
   const handleInputChange = (index: number, value: string) => {
-    if (value.length > 1) return; // Prevent entering more than one character
+    if (value.length > 1) return; 
     if (!/^\d*$/.test(value)) {
-      setError("يرجى إدخال أرقام صحيحة فقط."); // Show error when input is invalid
+      setError(t("InvalidInput"));
       return;
     }
     handleChangeVerificationCode(index, value);
-    setError(null); // Clear error when input is valid
+    setError(null);
 
     if (value && index < verificationCodes.length - 1) {
       inputRefs.current[index + 1]?.focus();
@@ -49,14 +53,14 @@ const Content: React.FC<ContentProps> = ({
 
   const handleVerify = () => {
     if (verificationCodes.some(code => code === '')) {
-      setError("يرجى إدخال جميع أرقام التحقق.");
+      setError(t("InvalidInput"));
       return;
     }
     if (!verificationCodes.every(code => /^\d$/.test(code))) {
-      setError("يرجى إدخال أرقام صحيحة فقط.");
+      setError(t("InvalidInput"));
       return;
     }
-    handleVerifyCode();
+    handleVerifyCode(verificationCodes);
   };
 
   useEffect(() => {
@@ -64,14 +68,13 @@ const Content: React.FC<ContentProps> = ({
   }, []);
 
   return (
-    <div className="text-center  lg:text-start w-full lg:w-[60%] px-0 lg:px-12 md:pt-10 flex flex-col justify-center gap-4">
+    <div className="text-center lg:text-start w-full lg:w-[60%] px-0 lg:px-12 md:pt-10 flex flex-col justify-center gap-4">
       <p className="text-[18px] md:text-[20px] text-title font-bold">
-        لقد أرسلنا لك رابط تأكيد ورقم تحقق عبر بريدك الإلكتروني
+        {t("VerificationTitle")}
       </p>
 
       <p className="text-[16px] md:text-[18px] text-paragraph">
-        الرجاء فتح بريدك الإلكتروني والضغط على رابط التأكيد لإكمال عملية التحقق
-        من حسابك أو إدخال رمز التحقق المكون من 6 أرقام في الحقول
+        {t("VerificationInstructions")}
       </p>
 
       <div className="flex items-center justify-center">
@@ -85,7 +88,7 @@ const Content: React.FC<ContentProps> = ({
               onKeyDown={(e) => handleKeyDown(e, index)}
               maxLength={1}
               ref={setInputRef(index)}
-              className=" w-8 h-8 md:w-10 md:h-10 mx-1 text-center text-[16px] border border-gray-300 rounded"
+              className="w-8 h-8 md:w-10 md:h-10 mx-1 text-center text-[16px] border border-gray-300 rounded"
             />
           ))}
         </div>
@@ -93,7 +96,7 @@ const Content: React.FC<ContentProps> = ({
           className="bg-accent text-white py-1 md:py-2 px-2 md:px-4 text-[16px] rounded cursor-pointer ml-2"
           onClick={handleVerify}
         >
-          تحقق
+          {t("VerifyButton")}
         </button>
       </div>
 
@@ -104,8 +107,7 @@ const Content: React.FC<ContentProps> = ({
       )}
 
       <p className="text-[16px] md:text-[18px] text-paragraph mt-4">
-        لم تتلق أيه رسالة على بريدك الإلكتروني أو صلاحية الرابط منتهية يمكنك
-        إعادة إرسال طلب تحقق من هنا
+        {t("ResendVerificationPrompt")}
       </p>
 
       {/* {showResendLink && ( */}
@@ -113,7 +115,7 @@ const Content: React.FC<ContentProps> = ({
           className="bg-accent text-white py-2 px-4 text-[16px] rounded cursor-pointer mb-2 transition-all ease-linear duration-75 hover:bg-secondary"
           onClick={handleOpenModal}
         >
-            حدث مشكلة أو لم تتلق رمز التحقق؟ 
+          {t("ResendVerificationLink")}
         </button>
       {/* )} */}
     </div>

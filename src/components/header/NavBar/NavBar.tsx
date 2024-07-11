@@ -27,8 +27,8 @@ const NavBar: React.FC<NavBarProps> = ({ locale }) => {
       href: "/",
     },
     {
-      link: t("certificates-link"),
-      href: "/certificates",
+      link: t("services-link"),
+      href: "/services",
     },
     {
       link: t("partnerships-link"),
@@ -93,9 +93,10 @@ const NavBar: React.FC<NavBarProps> = ({ locale }) => {
 
           <div className="hidden lg:block">
             <ButtonComp
-              content={t("discover-services-btn")}
+              content={t("signIn-btn")}
               isPrimary={true}
-              event={() => router.push("/services")}
+              event={() => router.push("/auth/signIn")}
+              custom="min-w-[150px]"
             />
           </div>
         </div>
