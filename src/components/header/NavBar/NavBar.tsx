@@ -88,7 +88,7 @@ const NavBar: React.FC<NavBarProps> = ({ locale }) => {
           <LinkList
             isScrolled={isScrolled}
             links={links}
-            btnTite={t("discover-services-btn")}
+            btnTite={t("signIn-btn")}
           />
 
           <div className="hidden lg:block">

@@ -3,6 +3,7 @@ import connectDB from '@/src/lib/mongodb';
 import Partner from '@/src/lib/models/partners';
 
 export async function POST(req: NextRequest) {
+  console.log("==============manar")
   await connectDB();
 
   const { companyName, email } = await req.json();
