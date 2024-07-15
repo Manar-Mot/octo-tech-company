@@ -1,4 +1,5 @@
 import { Document } from "mongoose";
+import { Role } from "./role";
 
 export interface IUser extends Document {
   firstName: string;
@@ -7,7 +8,7 @@ export interface IUser extends Document {
   password: string;
   confirmed: boolean;
   image: string;
-  role: string;
+  role: Role;
   provider: string;
   locale: string;
   otp?: string;

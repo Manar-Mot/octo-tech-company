@@ -4,13 +4,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { signIn, getSession } from "next-auth/react";
-import Link from "next/link";
+import { signIn } from "next-auth/react";
 import { userSignInValidation } from "@/src/lib/validation/auth-validation";
 import { useTranslations } from "next-intl";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { getUserSession } from "@/src/lib/actions/auth.actions";
-import { useRouter } from "@/src/navigation";
+import { useRouter } from "next/navigation";
 
 interface SignInFormProps {
   callbackUrl: string;
@@ -43,8 +42,9 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
     } else {
       const session = await getUserSession();
       const role = session?.user?.role;
-
-      if (role === "Admin") {
+console.log("======================================================================")
+console.log(session?.user?.role)
+      if (role?._id === "Admin") {
         router.push("/admin");
       } else {
         router.push(callbackUrl || "/");
@@ -78,7 +78,7 @@ const SignInForm = ({ callbackUrl }: SignInFormProps) => {
               type={showPassword ? "text" : "password"}
               placeholder={t("SignIn.passwordPlaceholder")}
               {...form.register("password")}
-              className="border p-2 w-full pr-10"
+              className="border p-2 w-full "
             />
             <div
               className="absolute inset-y-0 ltr:right-4 rtl:left-4 pr-3 text-slate-500 flex items-center cursor-pointer"

@@ -102,7 +102,7 @@ export const UserContextProvider = (props: Props) => {
         setLoading(false);
       }
     },
-    [router]
+    [router,t]
   );
   const handleVerifyCode = useCallback(
     async (verificationCodes: string[]) => {

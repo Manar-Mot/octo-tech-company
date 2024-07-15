@@ -7,9 +7,10 @@ import { nextauthOptions } from "../nextAuth-options";
 import connectDB from "../mongodb";
 import User from "../models/User";
 import { getLocale } from "next-intl/server";
+import { RoleModel } from "../models/Role";
 export async function getUserSession() {
   const session = await getServerSession(nextauthOptions);
-  return  session ;
+  return session;
 }
 
 interface ExtendedProfile extends Profile {
@@ -50,7 +51,6 @@ export async function signInWithOauth({
 
   await newUser.save();
   return true;
-
 }
 
 interface GetUserByEmailParams {
@@ -59,13 +59,11 @@ interface GetUserByEmailParams {
 
 export async function getUserByEmail({ email }: GetUserByEmailParams) {
   await connectDB();
-
-  const user = await User.findOne({ email }).select("-password");
+  const user = await User.findOne({ email }).populate("role").select("-password");
 
   if (!user) {
     throw new Error("User does not exist!");
   }
-
 
   return { ...user.toObject(), _id: user._id.toString() };
 }
@@ -107,31 +105,35 @@ interface SignInWithCredentialsParams {
   password: string;
 }
 
+
+
 export async function signInWithCredentials({
   email,
   password,
 }: SignInWithCredentialsParams) {
-  await connectDB();
+  try {
+    await connectDB();
+    const user = await User.findOne({ email }).populate("role");
+    if (!user || !user.password) {
+      throw new Error("Invalid email or password!");
+    }
+    const passwordIsValid = await bcrypt.compare(password, user.password);
+    if (!passwordIsValid) {
+      throw new Error("Invalid email or password!");
+    }
 
-  const user = await User.findOne({ email });
-
-  if (!user || !user.password) {
-    throw new Error("Invalid email or password!");
+    if (!user.confirmed) {
+      throw new Error("Account not confirmed!");
+    }
+    const userObject = user.toObject();
+    delete userObject.password;
+    return { ...userObject, _id: user._id.toString() };
+  } catch (error: any) {
+    console.error("SignIn Error: ", error.message);
+    throw new Error(error.message);
   }
-
-  const passwordIsValid = await bcrypt.compare(password, user.password);
-
-  if (!passwordIsValid) {
-    throw new Error("Invalid email or password");
-  }
-
-  if (!user.confirmed) {
-    throw new Error("Account not confirmed");
-  }
-console.log("================================user")
-console.log(user)
-  return { ...user.toObject(), _id: user._id.toString() };
 }
+
 
 export interface ChangeUserPasswordParams {
   oldPassword: string;

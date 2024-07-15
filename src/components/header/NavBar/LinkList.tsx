@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
-
 import { LinkItem } from "@/src/types";
 import { Link, useRouter } from "@/src/navigation";
 import ButtonComp from "../../sharedComponent/ButtonComp";
@@ -73,7 +72,10 @@ const LinkList: React.FC<LinkListProps> = ({ links, isScrolled, btnTite }) => {
           <ButtonComp
             content={btnTite}
             isPrimary={true}
-            event={() => router.push("/services")}
+            event={() => {
+              router.push("/auth/signIn");
+              toggleOpenList();
+            }}
           />
         </ul>
       </div>

@@ -63,7 +63,7 @@ const VerifyPage = () => {
     } finally {
       handleOpenModal();
     }
-  }, [handleOpenModal, setShowResendLink, toast, tMessage, user?.email]);
+  }, [handleOpenModal, setShowResendLink, tMessage, user?.email]);
 
   const handleChangeVerificationCode = (index: number, value: string) => {
     const newVerificationCodes = [...verificationCodes];

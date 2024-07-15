@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema<IUser>(
     role: {
       type: String,
       ref: "Role",
-      default: "User",
     },
     provider: {
       type: String,

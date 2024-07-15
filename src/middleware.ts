@@ -1,8 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { localePrefix, defaultLocale, locales, pathnames } from "./config";
 import { withAuth } from "next-auth/middleware";
-import { NextRequest, NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
+import { NextRequest } from "next/server";
 
 const intlMiddleware = createMiddleware({
   defaultLocale,
@@ -13,7 +12,7 @@ const intlMiddleware = createMiddleware({
 
 const authMiddleware = withAuth(
   async function onSuccess(req: NextRequest) {
-    return intlMiddleware(req);
+    // return intlMiddleware(req);
   },
   {
     callbacks: {
@@ -26,16 +25,20 @@ const authMiddleware = withAuth(
 );
 
 export default function middleware(req: NextRequest) {
-  // Define a regex pattern for private URLs
+  // Define a regex pattern for public URLs
   const excludePattern = "^(/(" + locales.join("|") + "))?/admin/?.*?$";
-  const publicPathnameRegex = RegExp(excludePattern, "i");
-  const isPublicPage = !publicPathnameRegex.test(req.nextUrl.pathname);
+  const adminPattern = "^/admin/?";
+  const isAdminPage = RegExp(adminPattern, "i").test(req.nextUrl.pathname);
+  const isPublicPage = !RegExp(excludePattern, "i").test(req.nextUrl.pathname);
 
-  if (isPublicPage) {
+  if (isAdminPage) {
+    // Apply Next-Auth middleware directly for admin pages without locale
+    return (authMiddleware as any)(req);
+  } else if (isPublicPage) {
     // Apply Next-Intl middleware for public pages
     return intlMiddleware(req);
   } else {
-    // Apply Next-Auth middleware for private pages
+    // Apply Next-Auth middleware for private pages with locale
     return (authMiddleware as any)(req);
   }
 }
@@ -55,5 +58,7 @@ export const config = {
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
     // Include API routes
     "/api/:path*",
+    // Include admin routes without locale
+    "/admin/:path*",
   ],
 };

@@ -12,7 +12,7 @@ export const nextauthOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/signIn",
-    error: "/auth/error",
+    error: "/auth",
   },
   providers: [
     GoogleProvider({
@@ -35,13 +35,15 @@ export const nextauthOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
-
+        
         const user = await signInWithCredentials({
           email: credentials.email,
           password: credentials.password,
         });
+        
 
         if (!user) {
+       
           throw new Error("Invalid email or password");
         }
 
@@ -67,7 +69,7 @@ export const nextauthOptions: NextAuthOptions = {
             token.firstName = user.firstName;
             token.lastName = user.lastName;
             token._id = user._id;
-            token.role = user.role;
+            token.role = {...user.role};
             token.provider = user.provider;
           }
         }
@@ -83,7 +85,7 @@ export const nextauthOptions: NextAuthOptions = {
           firstName: token.firstName,
           lastName: token.lastName,
           _id: token._id,
-          role: token.role,
+          role: {...token.role},
           provider: token.provider,
         },}
 
