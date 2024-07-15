@@ -59,7 +59,9 @@ interface GetUserByEmailParams {
 
 export async function getUserByEmail({ email }: GetUserByEmailParams) {
   await connectDB();
-  const user = await User.findOne({ email }).populate("role").select("-password");
+  const user = await User.findOne({ email })
+    .populate({ path: "role", model: RoleModel })
+    .select("-password");
 
   if (!user) {
     throw new Error("User does not exist!");
@@ -105,15 +107,16 @@ interface SignInWithCredentialsParams {
   password: string;
 }
 
-
-
 export async function signInWithCredentials({
   email,
   password,
 }: SignInWithCredentialsParams) {
   try {
     await connectDB();
-    const user = await User.findOne({ email }).populate("role");
+    const user = await User.findOne({ email }).populate({
+      path: "role",
+      model: RoleModel,
+    });
     if (!user || !user.password) {
       throw new Error("Invalid email or password!");
     }
@@ -133,7 +136,6 @@ export async function signInWithCredentials({
     throw new Error(error.message);
   }
 }
-
 
 export interface ChangeUserPasswordParams {
   oldPassword: string;
